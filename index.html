@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PahadiHaat - Uttarakhand's Local Products Marketplace</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -931,5 +934,30 @@
             });
         });
     </script>
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+<!-- Firebase Firestore (for database) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // Copy this from your Firebase project settings
+	const firebaseConfig = {
+	  apiKey: "AIzaSyABC123DEF456ghi789jkl",
+	  authDomain: "pahadihaat-6c893.firebaseapp.com",
+	  projectId: "pahadihaat-6c893",
+	  storageBucket: "pahadihaat-6c893.appspot.com",
+	  messagingSenderId: "1234567890",
+	  appId: "1:1234567890:web:abc123def456"
+	};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // Initialize Firestore
+  const db = firebase.firestore();
+</script>
+
 </body>
 </html>
