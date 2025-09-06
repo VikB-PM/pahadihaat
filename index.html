@@ -861,366 +861,126 @@
                         this.checked ? 'block' : 'none';
                 });
 
-                // Form submission
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get selected products
-                    const products = [];
-                    if (document.getElementById('productPaneer').checked) products.push('Paneer');
-                    if (document.getElementById('productGhee').checked) products.push('Ghee');
-                    if (document.getElementById('productHoney').checked) products.push('Honey');
-                    if (document.getElementById('productMilk').checked) products.push('Milk Products');
-                    if (document.getElementById('productSpices').checked) products.push('Spices');
-                    if (document.getElementById('productPickles').checked) products.push('Pickles');
-                    
-                    if (document.getElementById('productOther').checked) {
-                        const otherProduct = document.getElementById('otherProduct').value;
-                        if (otherProduct) products.push(otherProduct);
-                    }
-                    
-                    // Get district, tehsil, and village values
-                    let district = districtSelect.value;
-                    if (district === 'other') {
-                        district = document.getElementById('otherDistrict').value;
-                    }
-                    
-                    let tehsil = tehsilSelect.value;
-                    if (tehsil === 'other') {
-                        tehsil = document.getElementById('otherTehsil').value;
-                    }
-                    
-                    let village = villageSelect.value;
-                    if (village === 'other') {
-                        village = document.getElementById('otherVillage').value;
-                    }
-                    
-                    // Get video option
-                    const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
-                    
-                    // For now, just show success message (replace with Firebase code later)
-                    form.reset();
-                    document.getElementById('successMessage').style.display = 'block';
-                    
-                    // Scroll to success message
-                    setTimeout(() => {
-                        document.getElementById('successMessage').scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                    
-                    // Here you would add the Firebase code to save the data
-                    console.log({
-                        fullName: document.getElementById('fullName').value,
-                        phone: document.getElementById('phone').value,
-                        email: document.getElementById('email').value,
-                        district: district,
-                        tehsil: tehsil,
-                        village: village,
-                        pincode: document.getElementById('pincode').value,
-                        products: products,
-                        videoOption: videoOption
-                    });
-                });
-            }
-            
-            // Add error handling for images
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    this.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80';
-                    this.alt = 'Image not available';
-                });
-            });
-        });
-    </script>
-<!-- Firebase App (the core Firebase SDK) -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+                <script>
+  // ... keep your existing Firebase config code ...
 
-<script>
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyABC123DEF456ghi789jkl",
-    authDomain: "pahadihaat-6c893.firebaseapp.com",
-    projectId: "pahadihaat-6c893",
-    storageBucket: "pahadihaat-6c893.appspot.com",
-    messagingSenderId: "1234567890",
-    appId: "1:1234567890:web:abc123def456"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  // Initialize when document is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    // DOM elements
-    const districtSelect = document.getElementById('district');
-    const tehsilSelect = document.getElementById('tehsil');
-    const villageSelect = document.getElementById('village');
-    const form = document.getElementById('sellerRegistrationForm');
+  // Form submission - REPLACE your current form submission code with this
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    // Enable village field by default and add manual option
-    if (villageSelect) {
-      villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
-                                '<option value="manual">Enter village name manually</option>';
+    // Get final village value
+    let finalVillage = villageSelect.value;
+    if (finalVillage === 'manual') {
+      finalVillage = document.getElementById('manualVillage').value;
+      if (!finalVillage) {
+        alert("Please enter your village name");
+        return;
+      }
+    } else if (!finalVillage || finalVillage === "") {
+      alert("Please select or enter a village");
+      return;
     }
     
-    if (districtSelect && tehsilSelect && villageSelect && form) {
-      // District change event
-      districtSelect.addEventListener('change', function() {
-        const district = this.value;
+    // Get district value
+    let finalDistrict = districtSelect.value;
+    if (!finalDistrict || finalDistrict === "") {
+      alert("Please select a district");
+      return;
+    }
+    if (finalDistrict === 'other') {
+      finalDistrict = document.getElementById('otherDistrict').value;
+      if (!finalDistrict) {
+        alert("Please specify your district");
+        return;
+      }
+    }
+    
+    // Get tehsil value
+    let finalTehsil = tehsilSelect.value;
+    if (!finalTehsil || finalTehsil === "") {
+      alert("Please select a tehsil/block");
+      return;
+    }
+    if (finalTehsil === 'other') {
+      finalTehsil = document.getElementById('otherTehsil').value;
+      if (!finalTehsil) {
+        alert("Please specify your tehsil/block");
+        return;
+      }
+    }
+    
+    // Get selected products
+    const products = [];
+    if (document.getElementById('productPaneer') && document.getElementById('productPaneer').checked) products.push('Paneer');
+    if (document.getElementById('productGhee') && document.getElementById('productGhee').checked) products.push('Ghee');
+    if (document.getElementById('productHoney') && document.getElementById('productHoney').checked) products.push('Honey');
+    if (document.getElementById('productMilk') && document.getElementById('productMilk').checked) products.push('Milk Products');
+    if (document.getElementById('productSpices') && document.getElementById('productSpices').checked) products.push('Spices');
+    if (document.getElementById('productPickles') && document.getElementById('productPickles').checked) products.push('Pickles');
+    
+    if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
+      const otherProduct = document.getElementById('otherProduct').value;
+      if (otherProduct) products.push(otherProduct);
+    }
+    
+    // Get video option
+    const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
+    
+    // Prepare data for Firebase
+    const sellerData = {
+      fullName: document.getElementById('fullName').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      district: finalDistrict,
+      tehsil: finalTehsil,
+      village: finalVillage,
+      pincode: document.getElementById('pincode').value,
+      products: products,
+      videoOption: videoOption,
+      timestamp: new Date()
+    };
+    
+    console.log("Submitting data:", sellerData); // For debugging
+    
+    // Save to Firebase
+    db.collection("sellers").add(sellerData)
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
         
-        // Show/hide other district input
-        if (document.getElementById('otherDistrictContainer')) {
-          document.getElementById('otherDistrictContainer').style.display = 
-            district === 'other' ? 'block' : 'none';
-        }
+        // Show success message
+        document.getElementById('successMessage').style.display = 'block';
         
-        // Clear previous tehsils
+        // Reset form
+        form.reset();
+        
+        // Reset dropdowns
         tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-        
-        // Reset village field
         villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
                                   '<option value="manual">Enter village name manually</option>';
+        villageSelect.disabled = true;
         
-        // If manual entry was previously shown, hide it
+        // Hide manual inputs
         if (document.getElementById('manualVillageContainer')) {
           document.getElementById('manualVillageContainer').style.display = 'none';
         }
-        
-        // Add tehsils based on district
-        if (district && district !== 'other') {
-          // Sample tehsils for major districts
-          let tehsils = [];
-          switch(district) {
-            case 'almora':
-              tehsils = ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti"];
-              break;
-            case 'bageshwar':
-              tehsils = ["Bageshwar", "Kapkot", "Kanda"];
-              break;
-            case 'chamoli':
-              tehsils = ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag"];
-              break;
-            case 'dehradun':
-              tehsils = ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala"];
-              break;
-            case 'nainital':
-              tehsils = ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi"];
-              break;
-            case 'pauri':
-              tehsils = ["Pauri", "Srinagar", "Kotdwar", "Lansdowne"];
-              break;
-            case 'pithoragarh':
-              tehsils = ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat"];
-              break;
-            case 'tehri':
-              tehsils = ["Tehri", "Ghansali", "Narendra Nagar"];
-              break;
-            case 'udhamsinghnagar':
-              tehsils = ["Rudrapur", "Kashipur", "Kichha", "Sitarganj"];
-              break;
-            case 'uttarkashi':
-              tehsils = ["Uttarkashi", "Bhatwari", "Dunda"];
-              break;
-            default:
-              tehsils = [];
-          }
-          
-          // Add tehsils to dropdown
-          tehsils.forEach(tehsil => {
-            const option = document.createElement('option');
-            option.value = tehsil.toLowerCase();
-            option.textContent = tehsil;
-            tehsilSelect.appendChild(option);
-          });
+        if (document.getElementById('otherDistrictContainer')) {
+          document.getElementById('otherDistrictContainer').style.display = 'none';
         }
-        
-        // Always add "Other" option
-        const otherOption = document.createElement('option');
-        otherOption.value = 'other';
-        otherOption.textContent = 'Other (please specify)';
-        tehsilSelect.appendChild(otherOption);
-      });
-
-      // Tehsil change event
-      tehsilSelect.addEventListener('change', function() {
-        const tehsil = this.value;
-        const district = districtSelect.value;
-        
-        // Show/hide other tehsil input
         if (document.getElementById('otherTehsilContainer')) {
-          document.getElementById('otherTehsilContainer').style.display = 
-            tehsil === 'other' ? 'block' : 'none';
+          document.getElementById('otherTehsilContainer').style.display = 'none';
         }
         
-        // Enable village field
-        villageSelect.disabled = false;
-        
-        // If tehsil is "other", show manual village input
-        if (tehsil === 'other') {
-          villageSelect.innerHTML = '<option value="manual">Enter village name manually</option>';
-          // Trigger change to show manual input
-          villageSelect.value = 'manual';
-          villageSelect.dispatchEvent(new Event('change'));
-        } else {
-          // Reset village field
-          villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>' +
-                                    '<option value="manual">Enter village name manually</option>';
-          
-          // Hide manual input if previously shown
-          if (document.getElementById('manualVillageContainer')) {
-            document.getElementById('manualVillageContainer').style.display = 'none';
-          }
-        }
+        // Scroll to success message
+        document.getElementById('successMessage').scrollIntoView({
+          behavior: 'smooth'
+        });
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+        alert("There was an error with your registration. Please try again or contact us directly at +91 9876543210");
       });
-
-      // Village change event
-      villageSelect.addEventListener('change', function() {
-        const village = this.value;
-        
-        // Show/hide manual village input
-        if (village === 'manual') {
-          // Create manual input if it doesn't exist
-          if (!document.getElementById('manualVillageContainer')) {
-            const manualContainer = document.createElement('div');
-            manualContainer.id = 'manualVillageContainer';
-            manualContainer.className = 'mb-3';
-            manualContainer.innerHTML = `
-              <label for="manualVillage" class="form-label">Enter Village Name *</label>
-              <input type="text" class="form-control" id="manualVillage" required>
-            `;
-            villageSelect.parentNode.appendChild(manualContainer);
-          } else {
-            document.getElementById('manualVillageContainer').style.display = 'block';
-          }
-        } else if (document.getElementById('manualVillageContainer')) {
-          document.getElementById('manualVillageContainer').style.display = 'none';
-        }
-      });
-
-      // Form submission
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get final village value
-        let finalVillage = villageSelect.value;
-        if (finalVillage === 'manual') {
-          finalVillage = document.getElementById('manualVillage').value;
-          if (!finalVillage) {
-            alert("Please enter your village name");
-            return;
-          }
-        }
-        
-        // Get district value
-        let finalDistrict = districtSelect.value;
-        if (finalDistrict === 'other') {
-          finalDistrict = document.getElementById('otherDistrict').value;
-          if (!finalDistrict) {
-            alert("Please specify your district");
-            return;
-          }
-        }
-        
-        // Get tehsil value
-        let finalTehsil = tehsilSelect.value;
-        if (finalTehsil === 'other') {
-          finalTehsil = document.getElementById('otherTehsil').value;
-          if (!finalTehsil) {
-            alert("Please specify your tehsil/block");
-            return;
-          }
-        }
-        
-        // Basic validation
-        if (!finalDistrict) {
-          alert("Please select a district");
-          return;
-        }
-        
-        if (!finalTehsil) {
-          alert("Please select a tehsil/block");
-          return;
-        }
-        
-        if (!finalVillage) {
-          alert("Please select or enter a village");
-          return;
-        }
-        
-        // Get selected products
-        const products = [];
-        if (document.getElementById('productPaneer') && document.getElementById('productPaneer').checked) products.push('Paneer');
-        if (document.getElementById('productGhee') && document.getElementById('productGhee').checked) products.push('Ghee');
-        if (document.getElementById('productHoney') && document.getElementById('productHoney').checked) products.push('Honey');
-        if (document.getElementById('productMilk') && document.getElementById('productMilk').checked) products.push('Milk Products');
-        if (document.getElementById('productSpices') && document.getElementById('productSpices').checked) products.push('Spices');
-        if (document.getElementById('productPickles') && document.getElementById('productPickles').checked) products.push('Pickles');
-        
-        if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
-          const otherProduct = document.getElementById('otherProduct').value;
-          if (otherProduct) products.push(otherProduct);
-        }
-        
-        // Get video option
-        const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
-        
-        // Prepare data for Firebase
-        const sellerData = {
-          fullName: document.getElementById('fullName').value,
-          phone: document.getElementById('phone').value,
-          email: document.getElementById('email').value,
-          district: finalDistrict,
-          tehsil: finalTehsil,
-          village: finalVillage,
-          pincode: document.getElementById('pincode').value,
-          products: products,
-          videoOption: videoOption,
-          timestamp: new Date()
-        };
-        
-        // Save to Firebase
-        db.collection("sellers").add(sellerData)
-          .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-            form.reset();
-            
-            // Reset dropdowns
-            tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-            villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
-                                      '<option value="manual">Enter village name manually</option>';
-            villageSelect.disabled = true;
-            
-            // Hide manual inputs
-            if (document.getElementById('manualVillageContainer')) {
-              document.getElementById('manualVillageContainer').style.display = 'none';
-            }
-            if (document.getElementById('otherDistrictContainer')) {
-              document.getElementById('otherDistrictContainer').style.display = 'none';
-            }
-            if (document.getElementById('otherTehsilContainer')) {
-              document.getElementById('otherTehsilContainer').style.display = 'none';
-            }
-            
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({
-              behavior: 'smooth'
-            });
-          })
-          .catch((error) => {
-            console.error("Error adding document: ", error);
-            alert("There was an error with your registration. Please try again or contact us directly at +91 9876543210");
-          });
-      });
-    }
   });
 </script>
-
 </body>
 </html>
+
