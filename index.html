@@ -482,8 +482,8 @@
                 <div class="col-md-3 mb-4">
                     <h5>Contact Info</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Dehradun, Uttarakhand</li>
-                        <li><i class="fas fa-phone me-2"></i> +91 9876543210</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Pithoragarh, Uttarakhand</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 8886599220</li>
                         <li><i class="fas fa-envelope me-2"></i> info@pahadihaat.com</li>
                     </ul>
                 </div>
@@ -505,180 +505,178 @@
     </footer>
 
     <!-- Register Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Register as a Seller</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Seller Registration" class="seller-reg-img">
-                            <h4>Join Our Community of Sellers</h4>
-                            <p>Reach customers across Uttarakhand and beyond with your homemade products.</p>
-                            <ul>
-                                <li>No commission fees</li>
-                                <li>Secure communication system</li>
-                                <li>Share videos of your products</li>
-                                <li>Support from our team</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <form id="sellerRegistrationForm">
-                                <div class="mb-3">
-                                    <label for="fullName" class="form-label">Full Name *</label>
-                                    <input type="text" class="form-control" id="fullName" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone Number *</label>
-                                    <input type="tel" class="form-control" id="phone" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email">
-                                    <div class="form-text">Optional - for order notifications</div>
-                                </div>
-                                
-                                <div class="location-section mb-3">
-                                    <h6 class="modal-section-title">Your Location Details</h6>
-                                    
-                                    <div class="mb-2">
-                                        <label for="district" class="form-label">District *</label>
-                                        <select class="form-select" id="district" required>
-                                            <option value="" selected disabled>Select District</option>
-                                            <option value="almora">Almora</option>
-                                            <option value="bageshwar">Bageshwar</option>
-                                            <option value="chamoli">Chamoli</option>
-                                            <option value="champawat">Champawat</option>
-                                            <option value="dehradun">Dehradun</option>
-                                            <option value="haridwar">Haridwar</option>
-                                            <option value="nainital">Nainital</option>
-                                            <option value="pauri">Pauri Garhwal</option>
-                                            <option value="pithoragarh">Pithoragarh</option>
-                                            <option value="rudraprayag">Rudraprayag</option>
-                                            <option value="tehri">Tehri Garhwal</option>
-                                            <option value="udhamsinghnagar">Udham Singh Nagar</option>
-                                            <option value="uttarkashi">Uttarkashi</option>
-                                            <option value="other">Other (please specify)</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-2" id="otherDistrictContainer" style="display: none;">
-                                        <label for="otherDistrict" class="form-label">Specify District</label>
-                                        <input type="text" class="form-control" id="otherDistrict">
-                                    </div>
-                                    
-                                    <div class="mb-2">
-                                        <label for="tehsil" class="form-label">Tehsil/Block *</label>
-                                        <select class="form-select" id="tehsil" required>
-                                            <option value="" selected disabled>Select Tehsil/Block</option>
-                                            <!-- Options will be loaded based on district selection -->
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-2" id="otherTehsilContainer" style="display: none;">
-                                        <label for="otherTehsil" class="form-label">Specify Tehsil/Block</label>
-                                        <input type="text" class="form-control" id="otherTehsil">
-                                    </div>
-                                    
-                                    <div class="mb-2">
-                                        <label for="village" class="form-label">Village *</label>
-                                        <select class="form-select" id="village" required>
-                                            <option value="" selected disabled>Select Village</option>
-                                            <!-- Options will be loaded based on tehsil selection -->
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-2" id="otherVillageContainer" style="display: none;">
-                                        <label for="otherVillage" class="form-label">Specify Village</label>
-                                        <input type="text" class="form-control" id="otherVillage">
-                                    </div>
-                                    
-                                    <div class="mb-2">
-                                        <label for="pincode" class="form-label">PIN Code</label>
-                                        <input type="text" class="form-control" id="pincode">
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label class="form-label">Products You Want to Sell *</label>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="paneer" id="productPaneer">
-                                                <label class="form-check-label" for="productPaneer">Paneer</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="ghee" id="productGhee">
-                                                <label class="form-check-label" for="productGhee">Ghee</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="honey" id="productHoney">
-                                                <label class="form-check-label" for="productHoney">Honey</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="milk" id="productMilk">
-                                                <label class="form-check-label" for="productMilk">Milk Products</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="spices" id="productSpices">
-                                                <label class="form-check-label" for="productSpices">Spices</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="pickles" id="productPickles">
-                                                <label class="form-check-label" for="productPickles">Pickles</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="other" id="productOther">
-                                                <label class="form-check-label" for="productOther">Other</label>
-                                            </div>
-                                            <div class="mt-1" id="otherProductContainer" style="display: none;">
-                                                <input type="text" class="form-control form-control-sm" id="otherProduct" placeholder="Specify other products">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label class="form-label">Would you like to share a video? *</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="videoOption" id="videoYes" value="yes" required>
-                                        <label class="form-check-label" for="videoYes">Yes, I will share via WhatsApp</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="videoOption" id="videoNo" value="no">
-                                        <label class="form-check-label" for="videoNo">No, not now</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="whatsapp-option">
-                                    <p class="mb-1 small"><i class="fab fa-whatsapp me-1"></i> <strong>WhatsApp Video Instructions</strong></p>
-                                    <p class="mb-1 small">1. Record a short video (15-30 seconds)</p>
-                                    <p class="mb-1 small">2. Send to: <strong>+91 9876543210</strong></p>
-                                    <p class="mb-0 small">3. Mention your name and village</p>
-                                </div>
-                                
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="terms" required>
-                                    <label class="form-check-label" for="terms">I agree to the terms and conditions *</label>
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary w-100">Register Now</button>
-                            </form>
-                            
-                            <div class="alert alert-success mt-3" id="successMessage" style="display: none;">
-                                <i class="fas fa-check-circle me-2"></i> Thank you for your registration! Our team will contact you within 24 hours.
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register as a Seller</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Seller Registration" class="seller-reg-img">
+                        <h4>Join Our Community of Sellers</h4>
+                        <p>Reach customers across Uttarakhand and beyond with your homemade products.</p>
+                        <ul>
+                            <li>No commission fees</li>
+                            <li>Secure communication system</li>
+                            <li>Share videos of your products</li>
+                            <li>Support from our team</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <form id="sellerRegistrationForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="fullName" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email">
+                                <div class="form-text">Optional - for order notifications</div>
+                            </div>
+                            
+                            <div class="location-section mb-3">
+                                <h6 class="modal-section-title">Your Location Details</h6>
+                                
+                                <div class="mb-2">
+                                    <label for="district" class="form-label">District *</label>
+                                    <select class="form-select" id="district" required>
+                                        <option value="" selected disabled>Select District</option>
+                                        <option value="almora">Almora</option>
+                                        <option value="bageshwar">Bageshwar</option>
+                                        <option value="chamoli">Chamoli</option>
+                                        <option value="champawat">Champawat</option>
+                                        <option value="dehradun">Dehradun</option>
+                                        <option value="haridwar">Haridwar</option>
+                                        <option value="nainital">Nainital</option>
+                                        <option value="pauri">Pauri Garhwal</option>
+                                        <option value="pithoragarh">Pithoragarh</option>
+                                        <option value="rudraprayag">Rudraprayag</option>
+                                        <option value="tehri">Tehri Garhwal</option>
+                                        <option value="udhamsinghnagar">Udham Singh Nagar</option>
+                                        <option value="uttarkashi">Uttarkashi</option>
+                                        <option value="other">Other (please specify)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-2" id="otherDistrictContainer" style="display: none;">
+                                    <label for="otherDistrict" class="form-label">Specify District</label>
+                                    <input type="text" class="form-control" id="otherDistrict">
+                                </div>
+                                
+                                <div class="mb-2">
+                                    <label for="tehsil" class="form-label">Tehsil/Block *</label>
+                                    <select class="form-select" id="tehsil" disabled required>
+                                        <option value="" selected disabled>First select District</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-2" id="otherTehsilContainer" style="display: none;">
+                                    <label for="otherTehsil" class="form-label">Specify Tehsil/Block</label>
+                                    <input type="text" class="form-control" id="otherTehsil">
+                                </div>
+                                
+                                <div class="mb-2">
+                                    <label for="village" class="form-label">Village *</label>
+                                    <select class="form-select" id="village" disabled required>
+                                        <option value="" selected disabled>First select Tehsil</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-2" id="manualVillageContainer" style="display: none;">
+                                    <label for="manualVillage" class="form-label">Enter Village Name *</label>
+                                    <input type="text" class="form-control" id="manualVillage">
+                                </div>
+                                
+                                <div class="mb-2">
+                                    <label for="pincode" class="form-label">PIN Code</label>
+                                    <input type="text" class="form-control" id="pincode">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Products You Want to Sell *</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="paneer" id="productPaneer">
+                                            <label class="form-check-label" for="productPaneer">Paneer</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="ghee" id="productGhee">
+                                            <label class="form-check-label" for="productGhee">Ghee</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="honey" id="productHoney">
+                                            <label class="form-check-label" for="productHoney">Honey</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="milk" id="productMilk">
+                                            <label class="form-check-label" for="productMilk">Milk Products</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="spices" id="productSpices">
+                                            <label class="form-check-label" for="productSpices">Spices</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="pickles" id="productPickles">
+                                            <label class="form-check-label" for="productPickles">Pickles</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="other" id="productOther">
+                                            <label class="form-check-label" for="productOther">Other</label>
+                                        </div>
+                                        <div class="mt-1" id="otherProductContainer" style="display: none;">
+                                            <input type="text" class="form-control form-control-sm" id="otherProduct" placeholder="Specify other products">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Would you like to share a video? *</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="videoOption" id="videoYes" value="yes" required>
+                                    <label class="form-check-label" for="videoYes">Yes, I will share via WhatsApp</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="videoOption" id="videoNo" value="no">
+                                    <label class="form-check-label" for="videoNo">No, not now</label>
+                                </div>
+                            </div>
+                            
+                            <div class="whatsapp-option">
+                                <p class="mb-1 small"><i class="fab fa-whatsapp me-1"></i> <strong>WhatsApp Video Instructions</strong></p>
+                                <p class="mb-1 small">1. Record a short video (15-30 seconds)</p>
+                                <p class="mb-1 small">2. Send to: <strong>+91 9876543210</strong></p>
+                                <p class="mb-0 small">3. Mention your name and village</p>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="terms" required>
+                                <label class="form-check-label" for="terms">I agree to the terms and conditions *</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100">Register Now</button>
+                        </form>
+                        
+                        <div class="alert alert-success mt-3" id="successMessage" style="display: none;">
+                            <i class="fas fa-check-circle me-2"></i> Thank you for your registration! Our team will contact you within 24 hours.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -716,7 +714,20 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 <script>
-  // Your web app's Firebase configuration
+// Add this to your existing JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    // Contact form submission
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show success message
+        alert('Thank you for your message! We will contact you soon.');
+        
+        // Reset form
+        contactForm.reset();
+// Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyABC123DEF456ghi789jkl",
     authDomain: "pahadihaat-6c893.firebaseapp.com",
@@ -971,5 +982,6 @@
 </script>
 </body>
 </html>
+
 
 
