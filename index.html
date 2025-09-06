@@ -953,53 +953,6 @@
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
-  // Location data for Uttarakhand with more villages
-  const locationData = {
-    almora: {
-      tehsils: ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti", "Other"],
-      villages: {
-        "Almora": ["Almora", "Takula", "Bhaisiya Chhana", "Dhaula Devi", "Pali", "Bhikiyasain", "Other"],
-        "Ranikhet": ["Ranikhet", "Chaukhutiya", "Dwarahat", "Tarikhet", "Majkhali", "Other"],
-        "Dwarahat": ["Dwarahat", "Bageshwar", "Kapkot", "Bhatroj", "Other"],
-        "Someshwar": ["Someshwar", "Shitalakhet", "Chitai", "Other"],
-        "Jainti": ["Jainti", "Lamgara", "Other"]
-      }
-    },
-    bageshwar: {
-      tehsils: ["Bageshwar", "Kapkot", "Kanda", "Other"],
-      villages: {
-        "Bageshwar": ["Bageshwar", "Kausani", "Baijnath", "Garur", "Other"],
-        "Kapkot": ["Kapkot", "Kanda", "Matena", "Other"],
-        "Kanda": ["Kanda", "Faldia", "Other"]
-      }
-    },
-    chamoli: {
-      tehsils: ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag", "Other"],
-      villages: {
-        "Chamoli": ["Chamoli", "Gairsain", "Nandprayag", "Other"],
-        "Gopeshwar": ["Gopeshwar", "Chamoli", "Other"],
-        "Joshimath": ["Joshimath", "Badrinath", "Pipalkoti", "Other"],
-        "Karnaprayag": ["Karnaprayag", "Nandprayag", "Other"]
-      }
-    },
-    dehradun: {
-      tehsils: ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala", "Other"],
-      villages: {
-        "Dehradun": ["Dehradun", "Rajpur", "Premnagar", "Clement Town", "Other"],
-        "Rishikesh": ["Rishikesh", "Muni Ki Reti", "Swargashram", "Other"],
-        "Vikasnagar": ["Vikasnagar", "Kalsi", "Other"],
-        "Doiwala": ["Doiwala", "Herbertpur", "Other"]
-      }
-    },
-    // Add more districts as needed
-    other: {
-      tehsils: ["Other"],
-      villages: {
-        "Other": ["Other"]
-      }
-    }
-  };
-
   // Initialize when document is ready
   document.addEventListener('DOMContentLoaded', function() {
     // DOM elements
@@ -1008,28 +961,88 @@
     const villageSelect = document.getElementById('village');
     const form = document.getElementById('sellerRegistrationForm');
     
+    // Enable village field by default and add manual option
+    if (villageSelect) {
+      villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
+                                '<option value="manual">Enter village name manually</option>';
+    }
+    
     if (districtSelect && tehsilSelect && villageSelect && form) {
       // District change event
       districtSelect.addEventListener('change', function() {
         const district = this.value;
         
         // Show/hide other district input
-        document.getElementById('otherDistrictContainer').style.display = 
-          district === 'other' ? 'block' : 'none';
+        if (document.getElementById('otherDistrictContainer')) {
+          document.getElementById('otherDistrictContainer').style.display = 
+            district === 'other' ? 'block' : 'none';
+        }
         
-        // Clear previous tehsils and villages
+        // Clear previous tehsils
         tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-        villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>';
+        
+        // Reset village field
+        villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
+                                  '<option value="manual">Enter village name manually</option>';
+        
+        // If manual entry was previously shown, hide it
+        if (document.getElementById('manualVillageContainer')) {
+          document.getElementById('manualVillageContainer').style.display = 'none';
+        }
         
         // Add tehsils based on district
-        if (district && locationData[district]) {
-          locationData[district].tehsils.forEach(tehsil => {
+        if (district && district !== 'other') {
+          // Sample tehsils for major districts
+          let tehsils = [];
+          switch(district) {
+            case 'almora':
+              tehsils = ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti"];
+              break;
+            case 'bageshwar':
+              tehsils = ["Bageshwar", "Kapkot", "Kanda"];
+              break;
+            case 'chamoli':
+              tehsils = ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag"];
+              break;
+            case 'dehradun':
+              tehsils = ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala"];
+              break;
+            case 'nainital':
+              tehsils = ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi"];
+              break;
+            case 'pauri':
+              tehsils = ["Pauri", "Srinagar", "Kotdwar", "Lansdowne"];
+              break;
+            case 'pithoragarh':
+              tehsils = ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat"];
+              break;
+            case 'tehri':
+              tehsils = ["Tehri", "Ghansali", "Narendra Nagar"];
+              break;
+            case 'udhamsinghnagar':
+              tehsils = ["Rudrapur", "Kashipur", "Kichha", "Sitarganj"];
+              break;
+            case 'uttarkashi':
+              tehsils = ["Uttarkashi", "Bhatwari", "Dunda"];
+              break;
+            default:
+              tehsils = [];
+          }
+          
+          // Add tehsils to dropdown
+          tehsils.forEach(tehsil => {
             const option = document.createElement('option');
             option.value = tehsil.toLowerCase();
             option.textContent = tehsil;
             tehsilSelect.appendChild(option);
           });
         }
+        
+        // Always add "Other" option
+        const otherOption = document.createElement('option');
+        otherOption.value = 'other';
+        otherOption.textContent = 'Other (please specify)';
+        tehsilSelect.appendChild(otherOption);
       });
 
       // Tehsil change event
@@ -1038,67 +1051,103 @@
         const district = districtSelect.value;
         
         // Show/hide other tehsil input
-        document.getElementById('otherTehsilContainer').style.display = 
-          tehsil === 'other' ? 'block' : 'none';
+        if (document.getElementById('otherTehsilContainer')) {
+          document.getElementById('otherTehsilContainer').style.display = 
+            tehsil === 'other' ? 'block' : 'none';
+        }
         
-        // Clear previous villages
-        villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>';
+        // Enable village field
+        villageSelect.disabled = false;
         
-        // Add villages based on tehsil and district
-        if (tehsil && district && locationData[district] && locationData[district].villages[tehsil]) {
+        // If tehsil is "other", show manual village input
+        if (tehsil === 'other') {
+          villageSelect.innerHTML = '<option value="manual">Enter village name manually</option>';
+          // Trigger change to show manual input
+          villageSelect.value = 'manual';
+          villageSelect.dispatchEvent(new Event('change'));
+        } else {
+          // Reset village field
+          villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>' +
+                                    '<option value="manual">Enter village name manually</option>';
           
-          locationData[district].villages[tehsil].forEach(village => {
-            const option = document.createElement('option');
-            option.value = village.toLowerCase();
-            option.textContent = village;
-            villageSelect.appendChild(option);
-          });
-        } else if (tehsil === 'other') {
-          // If "Other" is selected for tehsil, add "Other" for village
-          const otherOption = document.createElement('option');
-          otherOption.value = 'other';
-          otherOption.textContent = 'Other (please specify)';
-          villageSelect.appendChild(otherOption);
+          // Hide manual input if previously shown
+          if (document.getElementById('manualVillageContainer')) {
+            document.getElementById('manualVillageContainer').style.display = 'none';
+          }
         }
       });
 
       // Village change event
       villageSelect.addEventListener('change', function() {
         const village = this.value;
-        document.getElementById('otherVillageContainer').style.display = 
-          village === 'other' ? 'block' : 'none';
+        
+        // Show/hide manual village input
+        if (village === 'manual') {
+          // Create manual input if it doesn't exist
+          if (!document.getElementById('manualVillageContainer')) {
+            const manualContainer = document.createElement('div');
+            manualContainer.id = 'manualVillageContainer';
+            manualContainer.className = 'mb-3';
+            manualContainer.innerHTML = `
+              <label for="manualVillage" class="form-label">Enter Village Name *</label>
+              <input type="text" class="form-control" id="manualVillage" required>
+            `;
+            villageSelect.parentNode.appendChild(manualContainer);
+          } else {
+            document.getElementById('manualVillageContainer').style.display = 'block';
+          }
+        } else if (document.getElementById('manualVillageContainer')) {
+          document.getElementById('manualVillageContainer').style.display = 'none';
+        }
       });
-
-      // Product other option
-      const productOtherCheckbox = document.getElementById('productOther');
-      if (productOtherCheckbox) {
-        productOtherCheckbox.addEventListener('change', function() {
-          document.getElementById('otherProductContainer').style.display = 
-            this.checked ? 'block' : 'none';
-        });
-      }
 
       // Form submission
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Basic validation
-        const district = districtSelect.value;
-        const tehsil = tehsilSelect.value;
-        const village = villageSelect.value;
+        // Get final village value
+        let finalVillage = villageSelect.value;
+        if (finalVillage === 'manual') {
+          finalVillage = document.getElementById('manualVillage').value;
+          if (!finalVillage) {
+            alert("Please enter your village name");
+            return;
+          }
+        }
         
-        if (!district || district === "") {
+        // Get district value
+        let finalDistrict = districtSelect.value;
+        if (finalDistrict === 'other') {
+          finalDistrict = document.getElementById('otherDistrict').value;
+          if (!finalDistrict) {
+            alert("Please specify your district");
+            return;
+          }
+        }
+        
+        // Get tehsil value
+        let finalTehsil = tehsilSelect.value;
+        if (finalTehsil === 'other') {
+          finalTehsil = document.getElementById('otherTehsil').value;
+          if (!finalTehsil) {
+            alert("Please specify your tehsil/block");
+            return;
+          }
+        }
+        
+        // Basic validation
+        if (!finalDistrict) {
           alert("Please select a district");
           return;
         }
         
-        if (!tehsil || tehsil === "") {
+        if (!finalTehsil) {
           alert("Please select a tehsil/block");
           return;
         }
         
-        if (!village || village === "") {
-          alert("Please select a village");
+        if (!finalVillage) {
+          alert("Please select or enter a village");
           return;
         }
         
@@ -1114,22 +1163,6 @@
         if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
           const otherProduct = document.getElementById('otherProduct').value;
           if (otherProduct) products.push(otherProduct);
-        }
-        
-        // Get district, tehsil, and village values
-        let finalDistrict = district;
-        if (district === 'other') {
-          finalDistrict = document.getElementById('otherDistrict').value;
-        }
-        
-        let finalTehsil = tehsil;
-        if (tehsil === 'other') {
-          finalTehsil = document.getElementById('otherTehsil').value;
-        }
-        
-        let finalVillage = village;
-        if (village === 'other') {
-          finalVillage = document.getElementById('otherVillage').value;
         }
         
         // Get video option
@@ -1154,6 +1187,25 @@
           .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
             form.reset();
+            
+            // Reset dropdowns
+            tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
+            villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
+                                      '<option value="manual">Enter village name manually</option>';
+            villageSelect.disabled = true;
+            
+            // Hide manual inputs
+            if (document.getElementById('manualVillageContainer')) {
+              document.getElementById('manualVillageContainer').style.display = 'none';
+            }
+            if (document.getElementById('otherDistrictContainer')) {
+              document.getElementById('otherDistrictContainer').style.display = 'none';
+            }
+            if (document.getElementById('otherTehsilContainer')) {
+              document.getElementById('otherTehsilContainer').style.display = 'none';
+            }
+            
+            // Show success message
             document.getElementById('successMessage').style.display = 'block';
             
             // Scroll to success message
@@ -1172,4 +1224,3 @@
 
 </body>
 </html>
-	
