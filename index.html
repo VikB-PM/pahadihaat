@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PahadiHaat - Uttarakhand's Local Products Marketplace</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -713,274 +711,265 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Location data for Uttarakhand
-        const locationData = {
-            almora: {
-                tehsils: ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti", "Other"],
-                villages: {
-                    "Almora": ["Almora", "Takula", "Bhaisiya Chhana", "Dhaula Devi", "Other"],
-                    "Ranikhet": ["Ranikhet", "Chaukhutiya", "Dwarahat", "Tarikhet", "Other"],
-                    "Dwarahat": ["Dwarahat", "Bageshwar", "Kapkot", "Other"]
-                }
-            },
-            bageshwar: {
-                tehsils: ["Bageshwar", "Kapkot", "Kanda", "Other"],
-                villages: {
-                    "Bageshwar": ["Bageshwar", "Kausani", "Baijnath", "Other"],
-                    "Kapkot": ["Kapkot", "Kanda", "Other"]
-                }
-            },
-            chamoli: {
-                tehsils: ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag", "Other"],
-                villages: {
-                    "Chamoli": ["Chamoli", "Gairsain", "Other"],
-                    "Joshimath": ["Joshimath", "Badrinath", "Other"]
-                }
-            },
-            dehradun: {
-                tehsils: ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala", "Other"],
-                villages: {
-                    "Dehradun": ["Dehradun", "Rajpur", "Premnagar", "Other"],
-                    "Rishikesh": ["Rishikesh", "Muni Ki Reti", "Other"]
-                }
-            },
-            nainital: {
-                tehsils: ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi", "Other"],
-                villages: {
-                    "Nainital": ["Nainital", "Bhowali", "Bhimtal", "Other"],
-                    "Haldwani": ["Haldwani", "Kathgodam", "Other"]
-                }
-            },
-            pauri: {
-                tehsils: ["Pauri", "Srinagar", "Kotdwar", "Lansdowne", "Other"],
-                villages: {
-                    "Pauri": ["Pauri", "Khirsu", "Other"],
-                    "Srinagar": ["Srinagar", "Devprayag", "Other"]
-                }
-            },
-            pithoragarh: {
-                tehsils: ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat", "Other"],
-                villages: {
-                    "Pithoragarh": ["Pithoragarh", "Thal", "Other"],
-                    "Dharchula": ["Dharchula", "Tawaghat", "Other"]
-                }
-            },
-            tehri: {
-                tehsils: ["Tehri", "Ghansali", "Narendra Nagar", "Other"],
-                villages: {
-                    "Tehri": ["Tehri", "Chamba", "Other"],
-                    "Narendra Nagar": ["Narendra Nagar", "Kirtinagar", "Other"]
-                }
-            },
-            udhamsinghnagar: {
-                tehsils: ["Rudrapur", "Kashipur", "Kichha", "Sitarganj", "Other"],
-                villages: {
-                    "Rudrapur": ["Rudrapur", "Pantnagar", "Other"],
-                    "Kashipur": ["Kashipur", "Bazpur", "Other"]
-                }
-            },
-            uttarkashi: {
-                tehsils: ["Uttarkashi", "Bhatwari", "Dunda", "Other"],
-                villages: {
-                    "Uttarkashi": ["Uttarkashi", "Gangotri", "Other"],
-                    "Bhatwari": ["Bhatwari", "Harsil", "Other"]
-                }
-            }
-        };
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-        // Initialize when document is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // DOM elements
-            const districtSelect = document.getElementById('district');
-            const tehsilSelect = document.getElementById('tehsil');
-            const villageSelect = document.getElementById('village');
-            const form = document.getElementById('sellerRegistrationForm');
-            
-            if (districtSelect && tehsilSelect && villageSelect && form) {
-                // District change event
-                districtSelect.addEventListener('change', function() {
-                    const district = this.value;
-                    
-                    // Show/hide other district input
-                    document.getElementById('otherDistrictContainer').style.display = 
-                        district === 'other' ? 'block' : 'none';
-                    
-                    // Clear previous tehsils and villages
-                    tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-                    villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>';
-                    
-                    // Add tehsils based on district
-                    if (district !== 'other' && locationData[district]) {
-                        locationData[district].tehsils.forEach(tehsil => {
-                            const option = document.createElement('option');
-                            option.value = tehsil.toLowerCase();
-                            option.textContent = tehsil;
-                            tehsilSelect.appendChild(option);
-                        });
-                    }
-                });
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyABC123DEF456ghi789jkl",
+    authDomain: "pahadihaat-6c893.firebaseapp.com",
+    projectId: "pahadihaat-6c893",
+    storageBucket: "pahadihaat-6c893.appspot.com",
+    messagingSenderId: "1234567890",
+    appId: "1:1234567890:web:abc123def456"
+  };
 
-                // Tehsil change event
-                tehsilSelect.addEventListener('change', function() {
-                    const tehsil = this.value;
-                    const district = districtSelect.value;
-                    
-                    // Show/hide other tehsil input
-                    document.getElementById('otherTehsilContainer').style.display = 
-                        tehsil === 'other' ? 'block' : 'none';
-                    
-                    // Clear previous villages
-                    villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>';
-                    
-                    // Add villages based on tehsil and district
-                    if (tehsil !== 'other' && district !== 'other' && 
-                        locationData[district] && locationData[district].villages[tehsil]) {
-                        
-                        locationData[district].villages[tehsil].forEach(village => {
-                            const option = document.createElement('option');
-                            option.value = village.toLowerCase();
-                            option.textContent = village;
-                            villageSelect.appendChild(option);
-                        });
-                    }
-                });
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
 
-                // Village change event
-                villageSelect.addEventListener('change', function() {
-                    const village = this.value;
-                    document.getElementById('otherVillageContainer').style.display = 
-                        village === 'other' ? 'block' : 'none';
-                });
-
-                // Product other option
-                document.getElementById('productOther').addEventListener('change', function() {
-                    document.getElementById('otherProductContainer').style.display = 
-                        this.checked ? 'block' : 'none';
-                });
-
-                <script>
-  // ... keep your existing Firebase config code ...
-
-  // Form submission - REPLACE your current form submission code with this
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  // Initialize when document is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // DOM elements
+    const districtSelect = document.getElementById('district');
+    const tehsilSelect = document.getElementById('tehsil');
+    const villageSelect = document.getElementById('village');
+    const form = document.getElementById('sellerRegistrationForm');
     
-    // Get final village value
-    let finalVillage = villageSelect.value;
-    if (finalVillage === 'manual') {
-      finalVillage = document.getElementById('manualVillage').value;
-      if (!finalVillage) {
-        alert("Please enter your village name");
-        return;
-      }
-    } else if (!finalVillage || finalVillage === "") {
-      alert("Please select or enter a village");
-      return;
-    }
-    
-    // Get district value
-    let finalDistrict = districtSelect.value;
-    if (!finalDistrict || finalDistrict === "") {
-      alert("Please select a district");
-      return;
-    }
-    if (finalDistrict === 'other') {
-      finalDistrict = document.getElementById('otherDistrict').value;
-      if (!finalDistrict) {
-        alert("Please specify your district");
-        return;
-      }
-    }
-    
-    // Get tehsil value
-    let finalTehsil = tehsilSelect.value;
-    if (!finalTehsil || finalTehsil === "") {
-      alert("Please select a tehsil/block");
-      return;
-    }
-    if (finalTehsil === 'other') {
-      finalTehsil = document.getElementById('otherTehsil').value;
-      if (!finalTehsil) {
-        alert("Please specify your tehsil/block");
-        return;
-      }
-    }
-    
-    // Get selected products
-    const products = [];
-    if (document.getElementById('productPaneer') && document.getElementById('productPaneer').checked) products.push('Paneer');
-    if (document.getElementById('productGhee') && document.getElementById('productGhee').checked) products.push('Ghee');
-    if (document.getElementById('productHoney') && document.getElementById('productHoney').checked) products.push('Honey');
-    if (document.getElementById('productMilk') && document.getElementById('productMilk').checked) products.push('Milk Products');
-    if (document.getElementById('productSpices') && document.getElementById('productSpices').checked) products.push('Spices');
-    if (document.getElementById('productPickles') && document.getElementById('productPickles').checked) products.push('Pickles');
-    
-    if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
-      const otherProduct = document.getElementById('otherProduct').value;
-      if (otherProduct) products.push(otherProduct);
-    }
-    
-    // Get video option
-    const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
-    
-    // Prepare data for Firebase
-    const sellerData = {
-      fullName: document.getElementById('fullName').value,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      district: finalDistrict,
-      tehsil: finalTehsil,
-      village: finalVillage,
-      pincode: document.getElementById('pincode').value,
-      products: products,
-      videoOption: videoOption,
-      timestamp: new Date()
-    };
-    
-    console.log("Submitting data:", sellerData); // For debugging
-    
-    // Save to Firebase
-    db.collection("sellers").add(sellerData)
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-        
-        // Show success message
-        document.getElementById('successMessage').style.display = 'block';
-        
-        // Reset form
-        form.reset();
-        
-        // Reset dropdowns
+    // Enable tehsil field when district is selected
+    if (districtSelect && tehsilSelect) {
+      districtSelect.addEventListener('change', function() {
+        // Enable tehsil dropdown when district is selected
+        tehsilSelect.disabled = false;
         tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-        villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil or choose manual entry</option>' +
-                                  '<option value="manual">Enter village name manually</option>';
-        villageSelect.disabled = true;
         
-        // Hide manual inputs
-        if (document.getElementById('manualVillageContainer')) {
-          document.getElementById('manualVillageContainer').style.display = 'none';
+        // Add sample tehsils based on selected district
+        const district = this.value;
+        let tehsils = [];
+        
+        switch(district) {
+          case 'almora':
+            tehsils = ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti"];
+            break;
+          case 'bageshwar':
+            tehsils = ["Bageshwar", "Kapkot", "Kanda"];
+            break;
+          case 'chamoli':
+            tehsils = ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag"];
+            break;
+          case 'dehradun':
+            tehsils = ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala"];
+            break;
+          case 'nainital':
+            tehsils = ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi"];
+            break;
+          case 'pauri':
+            tehsils = ["Pauri", "Srinagar", "Kotdwar", "Lansdowne"];
+            break;
+          case 'pithoragarh':
+            tehsils = ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat"];
+            break;
+          case 'tehri':
+            tehsils = ["Tehri", "Ghansali", "Narendra Nagar"];
+            break;
+          case 'udhamsinghnagar':
+            tehsils = ["Rudrapur", "Kashipur", "Kichha", "Sitarganj"];
+            break;
+          case 'uttarkashi':
+            tehsils = ["Uttarkashi", "Bhatwari", "Dunda"];
+            break;
+          default:
+            tehsils = ["Other"];
         }
-        if (document.getElementById('otherDistrictContainer')) {
-          document.getElementById('otherDistrictContainer').style.display = 'none';
-        }
-        if (document.getElementById('otherTehsilContainer')) {
+        
+        // Add tehsils to dropdown
+        tehsils.forEach(tehsil => {
+          const option = document.createElement('option');
+          option.value = tehsil.toLowerCase();
+          option.textContent = tehsil;
+          tehsilSelect.appendChild(option);
+        });
+        
+        // Always add "Other" option
+        const otherOption = document.createElement('option');
+        otherOption.value = 'other';
+        otherOption.textContent = 'Other (please specify)';
+        tehsilSelect.appendChild(otherOption);
+      });
+    }
+    
+    // Enable village field when tehsil is selected
+    if (tehsilSelect && villageSelect) {
+      tehsilSelect.addEventListener('change', function() {
+        // Enable village dropdown when tehsil is selected
+        villageSelect.disabled = false;
+        villageSelect.innerHTML = '<option value="" selected disabled>Select Village or Choose Manual Entry</option>';
+        
+        // Add manual entry option
+        const manualOption = document.createElement('option');
+        manualOption.value = 'manual';
+        manualOption.textContent = 'Enter village name manually';
+        villageSelect.appendChild(manualOption);
+        
+        // Show other tehsil input if "Other" is selected
+        if (this.value === 'other' && document.getElementById('otherTehsilContainer')) {
+          document.getElementById('otherTehsilContainer').style.display = 'block';
+        } else if (document.getElementById('otherTehsilContainer')) {
           document.getElementById('otherTehsilContainer').style.display = 'none';
         }
-        
-        // Scroll to success message
-        document.getElementById('successMessage').scrollIntoView({
-          behavior: 'smooth'
-        });
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-        alert("There was an error with your registration. Please try again or contact us directly at +91 9876543210");
       });
+    }
+    
+    // Show manual village input when manual option is selected
+    if (villageSelect) {
+      villageSelect.addEventListener('change', function() {
+        if (this.value === 'manual' && document.getElementById('manualVillageContainer')) {
+          document.getElementById('manualVillageContainer').style.display = 'block';
+        } else if (document.getElementById('manualVillageContainer')) {
+          document.getElementById('manualVillageContainer').style.display = 'none';
+        }
+      });
+    }
+
+    // Form submission
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const fullName = document.getElementById('fullName').value;
+        const phone = document.getElementById('phone').value;
+        const district = document.getElementById('district').value;
+        const tehsil = document.getElementById('tehsil').value;
+        let village = document.getElementById('village').value;
+        
+        // Basic validation
+        if (!district) {
+          alert("Please select a district");
+          return;
+        }
+        
+        if (!tehsil) {
+          alert("Please select a tehsil/block");
+          return;
+        }
+        
+        if (!village) {
+          alert("Please select or enter a village");
+          return;
+        }
+        
+        // Handle manual village entry
+        if (village === 'manual') {
+          village = document.getElementById('manualVillage').value;
+          if (!village) {
+            alert("Please enter your village name");
+            return;
+          }
+        }
+        
+        // Handle other district
+        let finalDistrict = district;
+        if (district === 'other') {
+          finalDistrict = document.getElementById('otherDistrict').value;
+          if (!finalDistrict) {
+            alert("Please specify your district");
+            return;
+          }
+        }
+        
+        // Handle other tehsil
+        let finalTehsil = tehsil;
+        if (tehsil === 'other') {
+          finalTehsil = document.getElementById('otherTehsil').value;
+          if (!finalTehsil) {
+            alert("Please specify your tehsil/block");
+            return;
+          }
+        }
+        
+        // Get selected products
+        const products = [];
+        if (document.getElementById('productPaneer') && document.getElementById('productPaneer').checked) products.push('Paneer');
+        if (document.getElementById('productGhee') && document.getElementById('productGhee').checked) products.push('Ghee');
+        if (document.getElementById('productHoney') && document.getElementById('productHoney').checked) products.push('Honey');
+        if (document.getElementById('productMilk') && document.getElementById('productMilk').checked) products.push('Milk Products');
+        if (document.getElementById('productSpices') && document.getElementById('productSpices').checked) products.push('Spices');
+        if (document.getElementById('productPickles') && document.getElementById('productPickles').checked) products.push('Pickles');
+        
+        if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
+          const otherProduct = document.getElementById('otherProduct').value;
+          if (otherProduct) products.push(otherProduct);
+        }
+        
+        // Get video option
+        const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
+        
+        // Prepare data for Firebase
+        const sellerData = {
+          fullName: fullName,
+          phone: phone,
+          email: document.getElementById('email').value,
+          district: finalDistrict,
+          tehsil: finalTehsil,
+          village: village,
+          pincode: document.getElementById('pincode').value,
+          products: products,
+          videoOption: videoOption,
+          timestamp: new Date()
+        };
+        
+        console.log("Submitting data:", sellerData);
+        
+        // Save to Firebase
+        db.collection("sellers").add(sellerData)
+          .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            form.reset();
+            
+            // Reset dropdowns
+            if (tehsilSelect) {
+              tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
+              tehsilSelect.disabled = true;
+            }
+            
+            if (villageSelect) {
+              villageSelect.innerHTML = '<option value="" selected disabled>Select Village or Choose Manual Entry</option>';
+              villageSelect.disabled = true;
+            }
+            
+            // Hide manual inputs
+            if (document.getElementById('manualVillageContainer')) {
+              document.getElementById('manualVillageContainer').style.display = 'none';
+            }
+            if (document.getElementById('otherDistrictContainer')) {
+              document.getElementById('otherDistrictContainer').style.display = 'none';
+            }
+            if (document.getElementById('otherTehsilContainer')) {
+              document.getElementById('otherTehsilContainer').style.display = 'none';
+            }
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({
+              behavior: 'smooth'
+            });
+          })
+          .catch((error) => {
+            console.error("Error adding document: ", error);
+            alert("There was an error with your registration. Please try again or contact us directly at +91 9876543210");
+          });
+      });
+    }
   });
 </script>
 </body>
 </html>
+
 
