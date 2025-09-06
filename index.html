@@ -14,17 +14,17 @@
             --light: #f1f8e9;
             --dark: #1b5e20;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             color: #333;
         }
-
+        
         .navbar {
             background-color: var(--primary);
         }
-
+        
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1581579437189-64af9b869729?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
@@ -33,7 +33,7 @@
             padding: 100px 0;
             text-align: center;
         }
-
+        
         .section-title {
             color: var(--dark);
             position: relative;
@@ -41,18 +41,18 @@
             margin-bottom: 30px;
             text-align: center;
         }
-
-            .section-title:after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80px;
-                height: 3px;
-                background-color: var(--accent);
-            }
-
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
         .product-card {
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
@@ -61,44 +61,44 @@
             margin-bottom: 20px;
             height: 100%;
         }
-
-            .product-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
         .product-img {
             height: 200px;
             object-fit: cover;
             background-color: #f8f9fa;
         }
-
+        
         .btn-primary {
             background-color: var(--primary);
             border-color: var(--primary);
         }
-
-            .btn-primary:hover {
-                background-color: var(--dark);
-                border-color: var(--dark);
-            }
-
+        
+        .btn-primary:hover {
+            background-color: var(--dark);
+            border-color: var(--dark);
+        }
+        
         .btn-outline-primary {
             color: var(--primary);
             border-color: var(--primary);
         }
-
-            .btn-outline-primary:hover {
-                background-color: var(--primary);
-                color: white;
-            }
-
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
         .feature-icon {
             font-size: 2.5rem;
             color: var(--secondary);
             margin-bottom: 15px;
         }
-
+        
         .how-it-works-step {
             text-align: center;
             padding: 20px;
@@ -107,7 +107,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             height: 100%;
         }
-
+        
         .step-number {
             width: 40px;
             height: 40px;
@@ -120,31 +120,31 @@
             margin: 0 auto 15px;
             font-weight: bold;
         }
-
+        
         footer {
             background-color: var(--dark);
             color: white;
             padding: 40px 0 20px;
         }
-
+        
         .social-icon {
             color: white;
             font-size: 1.5rem;
             margin-right: 15px;
             transition: color 0.3s;
         }
-
-            .social-icon:hover {
-                color: var(--accent);
-            }
-
+        
+        .social-icon:hover {
+            color: var(--accent);
+        }
+        
         .contact-form {
             background-color: white;
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-
+        
         .category-badge {
             position: absolute;
             top: 10px;
@@ -155,17 +155,17 @@
             border-radius: 20px;
             font-size: 0.8rem;
         }
-
+        
         .modal-content {
             border-radius: 15px;
             overflow: hidden;
         }
-
+        
         .modal-header {
             background-color: var(--primary);
             color: white;
         }
-
+        
         .seller-reg-img {
             height: 200px;
             object-fit: cover;
@@ -173,21 +173,30 @@
             border-radius: 10px;
             margin-bottom: 20px;
         }
-
-        .data-storage-options {
-            background-color: var(--light);
-            border-radius: 10px;
-            padding: 30px;
-            margin: 40px 0;
-        }
-
-        .option-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
+        
+        /* New styles for the enhanced registration form */
+        .location-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
+        }
+        
+        .modal-section-title {
+            color: var(--dark);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .whatsapp-option {
+            background-color: #f0fff0;
+            border-left: 4px solid #25D366;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -239,55 +248,11 @@
         </div>
     </section>
 
-    <!-- Data Storage Options Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">How Your Data is Stored</h2>
-            <p class="lead text-center mb-5">We use secure methods to store your information and protect your privacy</p>
-
-            <div class="data-storage-options">
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="option-card">
-                            <div class="text-center mb-4">
-                                <i class="fas fa-database feature-icon"></i>
-                            </div>
-                            <h4>Google Sheets</h4>
-                            <p>Your registration information is securely stored in a Google Sheet that only the PahadiHaat team can access.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="option-card">
-                            <div class="text-center mb-4">
-                                <i class="fas fa-shield-alt feature-icon"></i>
-                            </div>
-                            <h4>Secure & Private</h4>
-                            <p>We never share your personal information with third parties without your permission.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="option-card">
-                            <div class="text-center mb-4">
-                                <i class="fas fa-sync feature-icon"></i>
-                            </div>
-                            <h4>Easy Access</h4>
-                            <p>Our team can easily access your information to contact you and help set up your seller account.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-4">
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register as Seller</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Featured Products -->
     <section id="products" class="py-5">
         <div class="container">
             <h2 class="section-title">Featured Products</h2>
-
+            
             <div class="row">
                 <!-- Product 1 -->
                 <div class="col-md-6 col-lg-3">
@@ -305,7 +270,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Product 2 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card product-card">
@@ -322,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Product 3 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card product-card">
@@ -339,7 +304,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Product 4 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card product-card">
@@ -357,7 +322,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="text-center mt-4">
                 <a href="#" class="btn btn-outline-primary">View All Products</a>
             </div>
@@ -368,7 +333,7 @@
     <section id="how-it-works" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title">How PahadiHaat Works</h2>
-
+            
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="how-it-works-step">
@@ -377,7 +342,7 @@
                         <p>Local producers create listings with photos and details of their homemade products.</p>
                     </div>
                 </div>
-
+                
                 <div class="col-md-4">
                     <div class="how-it-works-step">
                         <div class="step-number">2</div>
@@ -385,7 +350,7 @@
                         <p>Customers browse products and initiate contact through our secure messaging system.</p>
                     </div>
                 </div>
-
+                
                 <div class="col-md-4">
                     <div class="how-it-works-step">
                         <div class="step-number">3</div>
@@ -401,12 +366,12 @@
     <section id="sell" class="py-5">
         <div class="container">
             <h2 class="section-title">Sell Your Products</h2>
-
+            
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Village Producer" class="img-fluid rounded">
                 </div>
-
+                
                 <div class="col-lg-6">
                     <div class="ps-lg-4 mt-4 mt-lg-0">
                         <h3 class="mb-4">Reach Customers Across Uttarakhand</h3>
@@ -419,7 +384,7 @@
                                 <p>Create product listings with photos and descriptions in just a few minutes.</p>
                             </div>
                         </div>
-
+                        
                         <div class="d-flex mb-3">
                             <div class="me-4">
                                 <i class="fas fa-shield-alt feature-icon"></i>
@@ -429,7 +394,17 @@
                                 <p>Your contact information remains hidden until you choose to share it.</p>
                             </div>
                         </div>
-
+                        
+                        <div class="d-flex mb-3">
+                            <div class="me-4">
+                                <i class="fas fa-video feature-icon"></i>
+                            </div>
+                            <div>
+                                <h5>Share Videos</h5>
+                                <p>Show customers your cattle, goats, and production process with short videos.</p>
+                            </div>
+                        </div>
+                        
                         <div class="d-flex mb-3">
                             <div class="me-4">
                                 <i class="fas fa-rupee-sign feature-icon"></i>
@@ -439,7 +414,7 @@
                                 <p>We don't charge any commission on your sales. Connect directly with buyers.</p>
                             </div>
                         </div>
-
+                        
                         <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#registerModal">Register as Seller</a>
                     </div>
                 </div>
@@ -451,33 +426,32 @@
     <section id="contact" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-
+            
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <!-- Replace with your Google Form URL -->
-                        <form action="https://docs.google.com/forms/u/0/d/e/YOUR_FORM_ID/formResponse" method="POST">
+                        <form>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Your Name</label>
-                                        <input type="text" class="form-control" id="name" name="entry.123456789" required>
+                                        <input type="text" class="form-control" id="name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email" name="entry.987654321" required>
+                                        <input type="email" class="form-control" id="email" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="subject" name="entry.123456790" required>
+                                <input type="text" class="form-control" id="subject" required>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" rows="5" name="entry.987654322" required></textarea>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
                         </form>
@@ -520,9 +494,6 @@
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
-                    </div>
                 </div>
             </div>
             <hr class="mt-0 mb-4">
@@ -549,64 +520,158 @@
                             <ul>
                                 <li>No commission fees</li>
                                 <li>Secure communication system</li>
-                                <li>Direct connection with buyers</li>
+                                <li>Share videos of your products</li>
                                 <li>Support from our team</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <!-- Replace with your Google Form URL -->
-                            <form action="https://docs.google.com/forms/u/0/d/e/YOUR_FORM_ID/formResponse" method="POST">
+                            <form id="sellerRegistrationForm">
                                 <div class="mb-3">
-                                    <label for="fullName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" name="entry.123456789" required>
+                                    <label for="fullName" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="fullName" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="village" class="form-label">Village Name</label>
-                                    <input type="text" class="form-control" id="village" name="entry.987654321" required>
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="district" class="form-label">District</label>
-                                    <select class="form-select" id="district" name="entry.123456790" required>
-                                        <option value="" selected disabled>Select District</option>
-                                        <option value="almora">Almora</option>
-                                        <option value="bageshwar">Bageshwar</option>
-                                        <option value="chamoli">Chamoli</option>
-                                        <option value="chardham">Chardham</option>
-                                        <option value="dehradun">Dehradun</option>
-                                        <option value="haridwar">Haridwar</option>
-                                        <option value="nainital">Nainital</option>
-                                        <option value="pauri">Pauri Garhwal</option>
-                                        <option value="pithoragarh">Pithoragarh</option>
-                                        <option value="rudraprayag">Rudraprayag</option>
-                                        <option value="tehri">Tehri Garhwal</option>
-                                        <option value="udhamsinghnagar">Udham Singh Nagar</option>
-                                        <option value="uttarkashi">Uttarkashi</option>
-                                    </select>
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email">
+                                    <div class="form-text">Optional - for order notifications</div>
                                 </div>
+                                
+                                <div class="location-section mb-3">
+                                    <h6 class="modal-section-title">Your Location Details</h6>
+                                    
+                                    <div class="mb-2">
+                                        <label for="district" class="form-label">District *</label>
+                                        <select class="form-select" id="district" required>
+                                            <option value="" selected disabled>Select District</option>
+                                            <option value="almora">Almora</option>
+                                            <option value="bageshwar">Bageshwar</option>
+                                            <option value="chamoli">Chamoli</option>
+                                            <option value="champawat">Champawat</option>
+                                            <option value="dehradun">Dehradun</option>
+                                            <option value="haridwar">Haridwar</option>
+                                            <option value="nainital">Nainital</option>
+                                            <option value="pauri">Pauri Garhwal</option>
+                                            <option value="pithoragarh">Pithoragarh</option>
+                                            <option value="rudraprayag">Rudraprayag</option>
+                                            <option value="tehri">Tehri Garhwal</option>
+                                            <option value="udhamsinghnagar">Udham Singh Nagar</option>
+                                            <option value="uttarkashi">Uttarkashi</option>
+                                            <option value="other">Other (please specify)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-2" id="otherDistrictContainer" style="display: none;">
+                                        <label for="otherDistrict" class="form-label">Specify District</label>
+                                        <input type="text" class="form-control" id="otherDistrict">
+                                    </div>
+                                    
+                                    <div class="mb-2">
+                                        <label for="tehsil" class="form-label">Tehsil/Block *</label>
+                                        <select class="form-select" id="tehsil" required>
+                                            <option value="" selected disabled>Select Tehsil/Block</option>
+                                            <!-- Options will be loaded based on district selection -->
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-2" id="otherTehsilContainer" style="display: none;">
+                                        <label for="otherTehsil" class="form-label">Specify Tehsil/Block</label>
+                                        <input type="text" class="form-control" id="otherTehsil">
+                                    </div>
+                                    
+                                    <div class="mb-2">
+                                        <label for="village" class="form-label">Village *</label>
+                                        <select class="form-select" id="village" required>
+                                            <option value="" selected disabled>Select Village</option>
+                                            <!-- Options will be loaded based on tehsil selection -->
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-2" id="otherVillageContainer" style="display: none;">
+                                        <label for="otherVillage" class="form-label">Specify Village</label>
+                                        <input type="text" class="form-control" id="otherVillage">
+                                    </div>
+                                    
+                                    <div class="mb-2">
+                                        <label for="pincode" class="form-label">PIN Code</label>
+                                        <input type="text" class="form-control" id="pincode">
+                                    </div>
+                                </div>
+                                
                                 <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" name="entry.987654322" required>
+                                    <label class="form-label">Products You Want to Sell *</label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="paneer" id="productPaneer">
+                                                <label class="form-check-label" for="productPaneer">Paneer</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="ghee" id="productGhee">
+                                                <label class="form-check-label" for="productGhee">Ghee</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="honey" id="productHoney">
+                                                <label class="form-check-label" for="productHoney">Honey</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="milk" id="productMilk">
+                                                <label class="form-check-label" for="productMilk">Milk Products</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="spices" id="productSpices">
+                                                <label class="form-check-label" for="productSpices">Spices</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="pickles" id="productPickles">
+                                                <label class="form-check-label" for="productPickles">Pickles</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="other" id="productOther">
+                                                <label class="form-check-label" for="productOther">Other</label>
+                                            </div>
+                                            <div class="mt-1" id="otherProductContainer" style="display: none;">
+                                                <input type="text" class="form-control form-control-sm" id="otherProduct" placeholder="Specify other products">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                
                                 <div class="mb-3">
-                                    <label for="products" class="form-label">Products You Want to Sell</label>
-                                    <select class="form-select" id="products" name="entry.123456791" multiple required>
-                                        <option value="paneer">Paneer</option>
-                                        <option value="ghee">Ghee</option>
-                                        <option value="honey">Honey</option>
-                                        <option value="spices">Spices</option>
-                                        <option value="pickles">Pickles</option>
-                                        <option value="jam">Jam</option>
-                                        <option value="milk">Milk Products</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <div class="form-text">Hold Ctrl to select multiple products</div>
+                                    <label class="form-label">Would you like to share a video? *</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="videoOption" id="videoYes" value="yes" required>
+                                        <label class="form-check-label" for="videoYes">Yes, I will share via WhatsApp</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="videoOption" id="videoNo" value="no">
+                                        <label class="form-check-label" for="videoNo">No, not now</label>
+                                    </div>
                                 </div>
+                                
+                                <div class="whatsapp-option">
+                                    <p class="mb-1 small"><i class="fab fa-whatsapp me-1"></i> <strong>WhatsApp Video Instructions</strong></p>
+                                    <p class="mb-1 small">1. Record a short video (15-30 seconds)</p>
+                                    <p class="mb-1 small">2. Send to: <strong>+91 9876543210</strong></p>
+                                    <p class="mb-0 small">3. Mention your name and village</p>
+                                </div>
+                                
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="terms" name="entry.987654323" required>
-                                    <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+                                    <input type="checkbox" class="form-check-input" id="terms" required>
+                                    <label class="form-check-label" for="terms">I agree to the terms and conditions *</label>
                                 </div>
+                                
                                 <button type="submit" class="btn btn-primary w-100">Register Now</button>
                             </form>
+                            
+                            <div class="alert alert-success mt-3" id="successMessage" style="display: none;">
+                                <i class="fas fa-check-circle me-2"></i> Thank you for your registration! Our team will contact you within 24 hours.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -646,52 +711,225 @@
         </div>
     </div>
 
-    <!-- Privacy Modal -->
-    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="privacyModalLabel">Privacy Policy & Data Storage</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h4>How We Store Your Data</h4>
-                    <p>At PahadiHaat, we use Google Forms to collect and store your information securely. Here's what you need to know:</p>
-
-                    <h5>Data Collection</h5>
-                    <ul>
-                        <li>We only collect information necessary to create your seller account</li>
-                        <li>Your data is stored in a secure Google Sheet</li>
-                        <li>Only authorized PahadiHaat team members can access your information</li>
-                    </ul>
-
-                    <h5>Data Usage</h5>
-                    <ul>
-                        <li>We use your information to contact you about your seller account</li>
-                        <li>We never sell or share your personal information with third parties</li>
-                        <li>You can request to delete your information at any time</li>
-                    </ul>
-
-                    <h5>Next Steps</h5>
-                    <p>After you submit the registration form, our team will contact you within 24 hours to complete your seller account setup and explain how to list your products.</p>
-
-                    <div class="alert alert-info">
-                        <i class="fas fa-info-circle me-2"></i>
-                        <strong>Note:</strong> We're currently using Google Forms for data collection as we build our platform. In the future, we'll implement a more advanced system with Azure databases.
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simple form validation and fallback for images
-        document.addEventListener('DOMContentLoaded', function () {
+        // Location data for Uttarakhand
+        const locationData = {
+            almora: {
+                tehsils: ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti", "Other"],
+                villages: {
+                    "Almora": ["Almora", "Takula", "Bhaisiya Chhana", "Dhaula Devi", "Other"],
+                    "Ranikhet": ["Ranikhet", "Chaukhutiya", "Dwarahat", "Tarikhet", "Other"],
+                    "Dwarahat": ["Dwarahat", "Bageshwar", "Kapkot", "Other"]
+                }
+            },
+            bageshwar: {
+                tehsils: ["Bageshwar", "Kapkot", "Kanda", "Other"],
+                villages: {
+                    "Bageshwar": ["Bageshwar", "Kausani", "Baijnath", "Other"],
+                    "Kapkot": ["Kapkot", "Kanda", "Other"]
+                }
+            },
+            chamoli: {
+                tehsils: ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag", "Other"],
+                villages: {
+                    "Chamoli": ["Chamoli", "Gairsain", "Other"],
+                    "Joshimath": ["Joshimath", "Badrinath", "Other"]
+                }
+            },
+            dehradun: {
+                tehsils: ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala", "Other"],
+                villages: {
+                    "Dehradun": ["Dehradun", "Rajpur", "Premnagar", "Other"],
+                    "Rishikesh": ["Rishikesh", "Muni Ki Reti", "Other"]
+                }
+            },
+            nainital: {
+                tehsils: ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi", "Other"],
+                villages: {
+                    "Nainital": ["Nainital", "Bhowali", "Bhimtal", "Other"],
+                    "Haldwani": ["Haldwani", "Kathgodam", "Other"]
+                }
+            },
+            pauri: {
+                tehsils: ["Pauri", "Srinagar", "Kotdwar", "Lansdowne", "Other"],
+                villages: {
+                    "Pauri": ["Pauri", "Khirsu", "Other"],
+                    "Srinagar": ["Srinagar", "Devprayag", "Other"]
+                }
+            },
+            pithoragarh: {
+                tehsils: ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat", "Other"],
+                villages: {
+                    "Pithoragarh": ["Pithoragarh", "Thal", "Other"],
+                    "Dharchula": ["Dharchula", "Tawaghat", "Other"]
+                }
+            },
+            tehri: {
+                tehsils: ["Tehri", "Ghansali", "Narendra Nagar", "Other"],
+                villages: {
+                    "Tehri": ["Tehri", "Chamba", "Other"],
+                    "Narendra Nagar": ["Narendra Nagar", "Kirtinagar", "Other"]
+                }
+            },
+            udhamsinghnagar: {
+                tehsils: ["Rudrapur", "Kashipur", "Kichha", "Sitarganj", "Other"],
+                villages: {
+                    "Rudrapur": ["Rudrapur", "Pantnagar", "Other"],
+                    "Kashipur": ["Kashipur", "Bazpur", "Other"]
+                }
+            },
+            uttarkashi: {
+                tehsils: ["Uttarkashi", "Bhatwari", "Dunda", "Other"],
+                villages: {
+                    "Uttarkashi": ["Uttarkashi", "Gangotri", "Other"],
+                    "Bhatwari": ["Bhatwari", "Harsil", "Other"]
+                }
+            }
+        };
+
+        // Initialize when document is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const districtSelect = document.getElementById('district');
+            const tehsilSelect = document.getElementById('tehsil');
+            const villageSelect = document.getElementById('village');
+            const form = document.getElementById('sellerRegistrationForm');
+            
+            if (districtSelect && tehsilSelect && villageSelect && form) {
+                // District change event
+                districtSelect.addEventListener('change', function() {
+                    const district = this.value;
+                    
+                    // Show/hide other district input
+                    document.getElementById('otherDistrictContainer').style.display = 
+                        district === 'other' ? 'block' : 'none';
+                    
+                    // Clear previous tehsils and villages
+                    tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
+                    villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>';
+                    
+                    // Add tehsils based on district
+                    if (district !== 'other' && locationData[district]) {
+                        locationData[district].tehsils.forEach(tehsil => {
+                            const option = document.createElement('option');
+                            option.value = tehsil.toLowerCase();
+                            option.textContent = tehsil;
+                            tehsilSelect.appendChild(option);
+                        });
+                    }
+                });
+
+                // Tehsil change event
+                tehsilSelect.addEventListener('change', function() {
+                    const tehsil = this.value;
+                    const district = districtSelect.value;
+                    
+                    // Show/hide other tehsil input
+                    document.getElementById('otherTehsilContainer').style.display = 
+                        tehsil === 'other' ? 'block' : 'none';
+                    
+                    // Clear previous villages
+                    villageSelect.innerHTML = '<option value="" selected disabled>Select Village</option>';
+                    
+                    // Add villages based on tehsil and district
+                    if (tehsil !== 'other' && district !== 'other' && 
+                        locationData[district] && locationData[district].villages[tehsil]) {
+                        
+                        locationData[district].villages[tehsil].forEach(village => {
+                            const option = document.createElement('option');
+                            option.value = village.toLowerCase();
+                            option.textContent = village;
+                            villageSelect.appendChild(option);
+                        });
+                    }
+                });
+
+                // Village change event
+                villageSelect.addEventListener('change', function() {
+                    const village = this.value;
+                    document.getElementById('otherVillageContainer').style.display = 
+                        village === 'other' ? 'block' : 'none';
+                });
+
+                // Product other option
+                document.getElementById('productOther').addEventListener('change', function() {
+                    document.getElementById('otherProductContainer').style.display = 
+                        this.checked ? 'block' : 'none';
+                });
+
+                // Form submission
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get selected products
+                    const products = [];
+                    if (document.getElementById('productPaneer').checked) products.push('Paneer');
+                    if (document.getElementById('productGhee').checked) products.push('Ghee');
+                    if (document.getElementById('productHoney').checked) products.push('Honey');
+                    if (document.getElementById('productMilk').checked) products.push('Milk Products');
+                    if (document.getElementById('productSpices').checked) products.push('Spices');
+                    if (document.getElementById('productPickles').checked) products.push('Pickles');
+                    
+                    if (document.getElementById('productOther').checked) {
+                        const otherProduct = document.getElementById('otherProduct').value;
+                        if (otherProduct) products.push(otherProduct);
+                    }
+                    
+                    // Get district, tehsil, and village values
+                    let district = districtSelect.value;
+                    if (district === 'other') {
+                        district = document.getElementById('otherDistrict').value;
+                    }
+                    
+                    let tehsil = tehsilSelect.value;
+                    if (tehsil === 'other') {
+                        tehsil = document.getElementById('otherTehsil').value;
+                    }
+                    
+                    let village = villageSelect.value;
+                    if (village === 'other') {
+                        village = document.getElementById('otherVillage').value;
+                    }
+                    
+                    // Get video option
+                    const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
+                    
+                    // For now, just show success message (replace with Firebase code later)
+                    form.reset();
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Scroll to success message
+                    setTimeout(() => {
+                        document.getElementById('successMessage').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                    
+                    // Here you would add the Firebase code to save the data
+                    console.log({
+                        fullName: document.getElementById('fullName').value,
+                        phone: document.getElementById('phone').value,
+                        email: document.getElementById('email').value,
+                        district: district,
+                        tehsil: tehsil,
+                        village: village,
+                        pincode: document.getElementById('pincode').value,
+                        products: products,
+                        videoOption: videoOption
+                    });
+                });
+            }
+            
             // Add error handling for images
             const images = document.querySelectorAll('img');
             images.forEach(img => {
-                img.addEventListener('
+                img.addEventListener('error', function() {
+                    this.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80';
+                    this.alt = 'Image not available';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
