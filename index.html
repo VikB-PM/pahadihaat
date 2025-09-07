@@ -20,6 +20,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             color: #333;
+            /* Uttarakhand map as background for the whole website */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,10 C30,30 50,20 70,40 C90,60 80,80 60,90 C40,100 20,80 10,60 Z" fill="none" stroke="rgba(46, 125, 50, 0.03)" stroke-width="1"/></svg>');
+            background-attachment: fixed;
+            background-size: 100% auto;
         }
         
         .navbar {
@@ -27,6 +31,7 @@
         }
         
         .hero-section {
+            /* Traditional Uttarakhand background image */
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1581579437189-64af9b869729?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
@@ -199,6 +204,25 @@
             margin-top: 15px;
             font-size: 0.9rem;
         }
+        
+        /* New styles for the improved layout */
+        .combined-section {
+            padding: 60px 0;
+        }
+        
+        .contact-info-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -322,43 +346,79 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Additional Products (Suggestion 3) -->
+                <!-- Product 5 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card">
+                        <span class="category-badge">Rajma</span>
+                        <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top product-img" alt="Munsiyari Rajma" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'">
+                        <div class="card-body">
+                            <h5 class="card-title">Munsiyari Rajma</h5>
+                            <p class="text-muted">From Munsiyari Village</p>
+                            <p class="card-text">Organic red kidney beans grown in the high altitudes of Munsiyari. Rich in protein.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">₹ 180/kg</span>
+                                <button class="btn btn-sm btn-primary">Contact Seller</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card">
+                        <span class="category-badge">Goat</span>
+                        <img src="https://images.unsplash.com/photo-1557528196-dafc4587ae11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top product-img" alt="Mountain Goat" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'">
+                        <div class="card-body">
+                            <h5 class="card-title">Mountain Goat</h5>
+                            <p class="text-muted">From Chamoli District</p>
+                            <p class="card-text">Healthy mountain goats raised in natural environment. Available for festive occasions.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">₹ 8000/animal</span>
+                                <button class="btn btn-sm btn-primary">Contact Seller</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card">
+                        <span class="category-badge">Eggs</span>
+                        <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top product-img" alt="Country Eggs" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'">
+                        <div class="card-body">
+                            <h5 class="card-title">Country Eggs</h5>
+                            <p class="text-muted">From Nainital Farms</p>
+                            <p class="card-text">Free-range country eggs from hens raised in natural environment. Rich in nutrients.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">₹ 120/dozen</span>
+                                <button class="btn btn-sm btn-primary">Contact Seller</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card">
+                        <span class="category-badge">Vegetables</span>
+                        <img src="https://images.unsplash.com/photo-1464454709131-ffd692591ee5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top product-img" alt="Organic Vegetables" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'">
+                        <div class="card-body">
+                            <h5 class="card-title">Organic Vegetables</h5>
+                            <p class="text-muted">From Pauri Garhwal</p>
+                            <p class="card-text">Fresh organic vegetables grown without chemicals. Seasonal varieties available.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">₹ 80-150/kg</span>
+                                <button class="btn btn-sm btn-primary">Contact Seller</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="text-center mt-4">
                 <a href="#" class="btn btn-outline-primary">View All Products</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">How PahadiHaat Works</h2>
-            
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <div class="step-number">1</div>
-                        <h4>Villagers List Products</h4>
-                        <p>Local producers create listings with photos and details of their homemade products.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <div class="step-number">2</div>
-                        <h4>Buyers Browse & Connect</h4>
-                        <p>Customers browse products and initiate contact through our secure messaging system.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <div class="step-number">3</div>
-                        <h4>Secure Communication</h4>
-                        <p>Buyers and sellers communicate without sharing personal contact details until both agree.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -423,15 +483,55 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
-    <section id="contact" class="py-5 bg-light">
+    <!-- Combined Section: How It Works and Contact Us (Suggestions 4 & 6) -->
+    <section id="how-it-works-contact" class="combined-section bg-light">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-8">
+            <div class="row">
+                <!-- How It Works Section -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">How PahadiHaat Works</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="how-it-works-step">
+                                <div class="step-number">1</div>
+                                <h4>Villagers List Products</h4>
+                                <p>Local producers create listings with photos and details of their homemade products.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="how-it-works-step">
+                                <div class="step-number">2</div>
+                                <h4>Buyers Browse & Connect</h4>
+                                <p>Customers browse products and initiate contact through our secure messaging system.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="how-it-works-step">
+                                <div class="step-number">3</div>
+                                <h4>Secure Communication</h4>
+                                <p>Buyers and sellers communicate without sharing personal contact details until both agree.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="how-it-works-step">
+                                <div class="step-number">4</div>
+                                <h4>Direct Transactions</h4>
+                                <p>Buyers and sellers negotiate directly and arrange for delivery or pickup.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Us Section -->
+                <div class="col-lg-6">
+                    <h2 class="section-title">Contact Us</h2>
+                    
                     <div class="contact-form">
-                        <form>
+                        <form id="contactForm">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
@@ -456,6 +556,16 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
                         </form>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="contact-info-card">
+                            <h4 class="mb-3">Other Ways to Reach Us</h4>
+                            <p><i class="fas fa-phone contact-icon"></i> +91 8886599220</p>
+                            <p><i class="fas fa-envelope contact-icon"></i> info@pahadihaat.com</p>
+                            <p><i class="fas fa-map-marker-alt contact-icon"></i> Pithoragarh, Uttarakhand</p>
+                            <p><i class="fab fa-whatsapp contact-icon"></i> +91 9876543210 (WhatsApp)</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -631,6 +741,10 @@
                                             <label class="form-check-label" for="productPickles">Pickles</label>
                                         </div>
                                         <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="rajma" id="productRajma">
+                                            <label class="form-check-label" for="productRajma">Rajma</label>
+                                        </div>
+                                        <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="other" id="productOther">
                                             <label class="form-check-label" for="productOther">Other</label>
                                         </div>
@@ -709,279 +823,377 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Uttarakhand districts with their tehsils/blocks and villages
+            const uttarakhandData = {
+                almora: {
+                    tehsils: ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti", "Bhikiyasain"],
+                    villages: {
+                        "almora": ["Dhaula Devi", "Takula", "Bhaisiya Chhana", "Syalde", "Phalsima"],
+                        "ranikhet": ["Tarikhet", "Chaukhutiya", "Dwarahaat", "Masi", "Bhargaon"],
+                        "dwarahat": ["Dwarahat", "Bageshwar", "Daula", "Lamgara", "Gairsain"],
+                        "someshwar": ["Someshwar", "Kapkote", "Binta", "Gananath", "Shama"],
+                        "jainti": ["Jainti", "Chaukori", "Berinag", "Didihat", "Gangolihat"],
+                        "bhikiyasain": ["Bhikiyasain", "Salt", "Syuni", "Dhauladevi", "Gairkhet"]
+                    }
+                },
+                bageshwar: {
+                    tehsils: ["Bageshwar", "Kapkot", "Kanda", "Garud"],
+                    villages: {
+                        "bageshwar": ["Bageshwar", "Kafni", "Kanda", "Kapkote", "Baijnath"],
+                        "kapkot": ["Kapkot", "Matena", "Kotmanya", "Dangoli", "Simli"],
+                        "kanda": ["Kanda", "Faldia", "Khetikhan", "Sama", "Baldungri"],
+                        "garud": ["Garud", "Bhanoli", "Dhauladevi", "Thal", "Mana"]
+                    }
+                },
+                chamoli: {
+                    tehsils: ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag", "Tharali"],
+                    villages: {
+                        "chamoli": ["Chamoli", "Gairsain", "Nandprayag", "Dasholi", "Ghat"],
+                        "gopeshwar": ["Gopeshwar", "Chopta", "Mandal", "Ukhimath", "Kalimath"],
+                        "joshimath": ["Joshimath", "Auli", "Pipalkoti", "Helang", "Marwari"],
+                        "karnaprayag": ["Karnaprayag", "Nauti", "Tharali", "Deval", "Sitel"],
+                        "tharali": ["Tharali", "Narayanbagar", "Gwaldam", "Dewal", "Kulsari"]
+                    }
+                },
+                // Add more districts with their tehsils and villages
+                dehradun: {
+                    tehsils: ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala", "Sahaspur"],
+                    villages: {
+                        "dehradun": ["Rajpur", "Clement Town", "Sahastradhara", "Malsi", "Jhajra"],
+                        "rishikesh": ["Rishikesh", "Neelkanth", "Tapovan", "Swaraj Nagar", "Shivpuri"],
+                        "vikasnagar": ["Vikasnagar", "Kalsi", "Herbertpur", "Jaspur", "Kuanwala"],
+                        "doiwala": ["Doiwala", "Selaqui", "Bhaniyawala", "Niranjanpur", "Premnagar"],
+                        "sahaspur": ["Sahaspur", "Khand Gaon", "Bhauwala", "Droli", "Mandanpur"]
+                    }
+                },
+                nainital: {
+                    tehsils: ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi", "Bhimtal"],
+                    villages: {
+                        "nainital": ["Nainital", "Bhowali", "Bhimtal", "Sattal", "Khurpatal"],
+                        "haldwani": ["Haldwani", "Kathgodam", "Pantnagar", "Lalkuan", "Gaula"],
+                        "ramnagar": ["Ramnagar", "Corbett", "Dhikala", "Sultanpur", "Kalagarh"],
+                        "kaladhungi": ["Kaladhungi", "Mukteshwar", "Ramgarh", "Baret", "Gagar"],
+                        "bhimtal": ["Bhimtal", "Sattal", "Naukuchiatal", "Saryu", "Kotabagh"]
+                    }
+                },
+                pithoragarh: {
+                    tehsils: ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat", "Berinag"],
+                    villages: {
+                        "pithoragarh": ["Pithoragarh", "Thal", "Askot", "Jauljibi", "Baluakot"],
+                        "dharchula": ["Dharchula", "Tawaghat", "Jipti", "Sobala", "Sirkha"],
+                        "didihaat": ["Didihaat", "Kanalichhina", "Banspatan", "Jhulaghat", "Rupal"],
+                        "gangolihat": ["Gangolihat", "Bauna", "Syuni", "Tejam", "Baram"],
+                        "berinag": ["Berinag", "Chaukori", "Didihat", "Kotnya", "Jhankhar"]
+                    }
+                },
+                // Add more districts as needed
+                rudraprayag: {
+                    tehsils: ["Rudraprayag", "Ukhimath", "Jakholi", "Augustmuni"],
+                    villages: {
+                        "rudraprayag": ["Rudraprayag", "Guptkashi", "Kund", "Silli", "Barmano"],
+                        "ukhimath": ["Ukhimath", "Chopta", "Madmaheshwar", "Ransi", "Gaundar"],
+                        "jakholi": ["Jakholi", "Koti", "Narayanbagar", "Kunwari", "Sainj"],
+                        "augustmuni": ["Augustmuni", "Bhatwari", "Agastyamuni", "Phata", "Sersi"]
+                    }
+                },
+                tehri: {
+                    tehsils: ["Tehri", "Ghansali", "Narendra Nagar", "Pratapnagar"],
+                    villages: {
+                        "tehri": ["Tehri", "Chamba", "Kirtinagar", "Thatyur", "Dhanaulti"],
+                        "ghansali": ["Ghansali", "Jakhnidhar", "Silyara", "Bironkhal", "Kandikhal"],
+                        "narendra nagar": ["Narendra Nagar", "Chamba", "Kempty", "Jakhani", "Suakholi"],
+                        "pratapnagar": ["Pratapnagar", "Devprayag", "Kirtinagar", "Nail", "Jakh"]
+                    }
+                },
+                uttarkashi: {
+                    tehsils: ["Uttarkashi", "Bhatwari", "Dunda", "Chinyalisaur"],
+                    villages: {
+                        "uttarkashi": ["Uttarkashi", "Gangnani", "Harsil", "Dharali", "Sukki"],
+                        "bhatwari": ["Bhatwari", "Gangori", "Jhala", "Purali", "Sunda"],
+                        "dunda": ["Dunda", "Maneri", "Gangori", "Silyara", "Purali"],
+                        "chinyalisaur": ["Chinyalisaur", "Nauda", "Barsu", "Sainj", "Kot"]
+                    }
+                }
+            };
 
-<script>
-// Add this to your existing JavaScript
-  document.addEventListener('DOMContentLoaded', function() {
-    // Contact form submission
-    const contactForm = document.querySelector('#contact form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Show success message
-        alert('Thank you for your message! We will contact you soon.');
-        
-        // Reset form
-        contactForm.reset();
-// Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyABC123DEF456ghi789jkl",
-    authDomain: "pahadihaat-6c893.firebaseapp.com",
-    projectId: "pahadihaat-6c893",
-    storageBucket: "pahadihaat-6c893.appspot.com",
-    messagingSenderId: "1234567890",
-    appId: "1:1234567890:web:abc123def456"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  // Initialize when document is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    // DOM elements
-    const districtSelect = document.getElementById('district');
-    const tehsilSelect = document.getElementById('tehsil');
-    const villageSelect = document.getElementById('village');
-    const form = document.getElementById('sellerRegistrationForm');
-    
-    // Enable tehsil field when district is selected
-    if (districtSelect && tehsilSelect) {
-      districtSelect.addEventListener('change', function() {
-        // Enable tehsil dropdown when district is selected
-        tehsilSelect.disabled = false;
-        tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-        
-        // Add sample tehsils based on selected district
-        const district = this.value;
-        let tehsils = [];
-        
-        switch(district) {
-          case 'almora':
-            tehsils = ["Almora", "Ranikhet", "Dwarahat", "Someshwar", "Jainti"];
-            break;
-          case 'bageshwar':
-            tehsils = ["Bageshwar", "Kapkot", "Kanda"];
-            break;
-          case 'chamoli':
-            tehsils = ["Chamoli", "Gopeshwar", "Joshimath", "Karnaprayag"];
-            break;
-          case 'dehradun':
-            tehsils = ["Dehradun", "Rishikesh", "Vikasnagar", "Doiwala"];
-            break;
-          case 'nainital':
-            tehsils = ["Nainital", "Haldwani", "Ramnagar", "Kaladhungi"];
-            break;
-          case 'pauri':
-            tehsils = ["Pauri", "Srinagar", "Kotdwar", "Lansdowne"];
-            break;
-          case 'pithoragarh':
-            tehsils = ["Pithoragarh", "Dharchula", "Didihaat", "Gangolihat"];
-            break;
-          case 'tehri':
-            tehsils = ["Tehri", "Ghansali", "Narendra Nagar"];
-            break;
-          case 'udhamsinghnagar':
-            tehsils = ["Rudrapur", "Kashipur", "Kichha", "Sitarganj"];
-            break;
-          case 'uttarkashi':
-            tehsils = ["Uttarkashi", "Bhatwari", "Dunda"];
-            break;
-          default:
-            tehsils = ["Other"];
-        }
-        
-        // Add tehsils to dropdown
-        tehsils.forEach(tehsil => {
-          const option = document.createElement('option');
-          option.value = tehsil.toLowerCase();
-          option.textContent = tehsil;
-          tehsilSelect.appendChild(option);
-        });
-        
-        // Always add "Other" option
-        const otherOption = document.createElement('option');
-        otherOption.value = 'other';
-        otherOption.textContent = 'Other (please specify)';
-        tehsilSelect.appendChild(otherOption);
-      });
-    }
-    
-    // Enable village field when tehsil is selected
-    if (tehsilSelect && villageSelect) {
-      tehsilSelect.addEventListener('change', function() {
-        // Enable village dropdown when tehsil is selected
-        villageSelect.disabled = false;
-        villageSelect.innerHTML = '<option value="" selected disabled>Select Village or Choose Manual Entry</option>';
-        
-        // Add manual entry option
-        const manualOption = document.createElement('option');
-        manualOption.value = 'manual';
-        manualOption.textContent = 'Enter village name manually';
-        villageSelect.appendChild(manualOption);
-        
-        // Show other tehsil input if "Other" is selected
-        if (this.value === 'other' && document.getElementById('otherTehsilContainer')) {
-          document.getElementById('otherTehsilContainer').style.display = 'block';
-        } else if (document.getElementById('otherTehsilContainer')) {
-          document.getElementById('otherTehsilContainer').style.display = 'none';
-        }
-      });
-    }
-    
-    // Show manual village input when manual option is selected
-    if (villageSelect) {
-      villageSelect.addEventListener('change', function() {
-        if (this.value === 'manual' && document.getElementById('manualVillageContainer')) {
-          document.getElementById('manualVillageContainer').style.display = 'block';
-        } else if (document.getElementById('manualVillageContainer')) {
-          document.getElementById('manualVillageContainer').style.display = 'none';
-        }
-      });
-    }
-
-    // Form submission
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const fullName = document.getElementById('fullName').value;
-        const phone = document.getElementById('phone').value;
-        const district = document.getElementById('district').value;
-        const tehsil = document.getElementById('tehsil').value;
-        let village = document.getElementById('village').value;
-        
-        // Basic validation
-        if (!district) {
-          alert("Please select a district");
-          return;
-        }
-        
-        if (!tehsil) {
-          alert("Please select a tehsil/block");
-          return;
-        }
-        
-        if (!village) {
-          alert("Please select or enter a village");
-          return;
-        }
-        
-        // Handle manual village entry
-        if (village === 'manual') {
-          village = document.getElementById('manualVillage').value;
-          if (!village) {
-            alert("Please enter your village name");
-            return;
-          }
-        }
-        
-        // Handle other district
-        let finalDistrict = district;
-        if (district === 'other') {
-          finalDistrict = document.getElementById('otherDistrict').value;
-          if (!finalDistrict) {
-            alert("Please specify your district");
-            return;
-          }
-        }
-        
-        // Handle other tehsil
-        let finalTehsil = tehsil;
-        if (tehsil === 'other') {
-          finalTehsil = document.getElementById('otherTehsil').value;
-          if (!finalTehsil) {
-            alert("Please specify your tehsil/block");
-            return;
-          }
-        }
-        
-        // Get selected products
-        const products = [];
-        if (document.getElementById('productPaneer') && document.getElementById('productPaneer').checked) products.push('Paneer');
-        if (document.getElementById('productGhee') && document.getElementById('productGhee').checked) products.push('Ghee');
-        if (document.getElementById('productHoney') && document.getElementById('productHoney').checked) products.push('Honey');
-        if (document.getElementById('productMilk') && document.getElementById('productMilk').checked) products.push('Milk Products');
-        if (document.getElementById('productSpices') && document.getElementById('productSpices').checked) products.push('Spices');
-        if (document.getElementById('productPickles') && document.getElementById('productPickles').checked) products.push('Pickles');
-        
-        if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
-          const otherProduct = document.getElementById('otherProduct').value;
-          if (otherProduct) products.push(otherProduct);
-        }
-        
-        // Get video option
-        const videoOption = document.querySelector('input[name="videoOption"]:checked').value;
-        
-        // Prepare data for Firebase
-        const sellerData = {
-          fullName: fullName,
-          phone: phone,
-          email: document.getElementById('email').value,
-          district: finalDistrict,
-          tehsil: finalTehsil,
-          village: village,
-          pincode: document.getElementById('pincode').value,
-          products: products,
-          videoOption: videoOption,
-          timestamp: new Date()
-        };
-        
-        console.log("Submitting data:", sellerData);
-        
-        // Save to Firebase
-        db.collection("sellers").add(sellerData)
-          .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
+            // DOM elements
+            const districtSelect = document.getElementById('district');
+            const tehsilSelect = document.getElementById('tehsil');
+            const villageSelect = document.getElementById('village');
+            const form = document.getElementById('sellerRegistrationForm');
+            const contactForm = document.getElementById('contactForm');
             
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Reset form
-            form.reset();
-            
-            // Reset dropdowns
-            if (tehsilSelect) {
-              tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
-              tehsilSelect.disabled = true;
+            // Show other district input if "Other" is selected
+            if (districtSelect) {
+                districtSelect.addEventListener('change', function() {
+                    if (this.value === 'other' && document.getElementById('otherDistrictContainer')) {
+                        document.getElementById('otherDistrictContainer').style.display = 'block';
+                    } else if (document.getElementById('otherDistrictContainer')) {
+                        document.getElementById('otherDistrictContainer').style.display = 'none';
+                    }
+                    
+                    // Enable tehsil dropdown when district is selected
+                    tehsilSelect.disabled = false;
+                    tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
+                    
+                    // Add tehsils based on selected district
+                    const district = this.value;
+                    if (district && uttarakhandData[district]) {
+                        uttarakhandData[district].tehsils.forEach(tehsil => {
+                            const option = document.createElement('option');
+                            option.value = tehsil.toLowerCase();
+                            option.textContent = tehsil;
+                            tehsilSelect.appendChild(option);
+                        });
+                    }
+                    
+                    // Always add "Other" option
+                    const otherOption = document.createElement('option');
+                    otherOption.value = 'other';
+                    otherOption.textContent = 'Other (please specify)';
+                    tehsilSelect.appendChild(otherOption);
+                });
             }
             
+            // Enable tehsil field when district is selected
+            if (districtSelect && tehsilSelect) {
+                districtSelect.addEventListener('change', function() {
+                    // Enable tehsil dropdown when district is selected
+                    tehsilSelect.disabled = false;
+                    tehsilSelect.innerHTML = '<option value="" selected disabled>Select Tehsil/Block</option>';
+                    
+                    // Add tehsils based on selected district
+                    const district = this.value;
+                    if (district && uttarakhandData[district]) {
+                        uttarakhandData[district].tehsils.forEach(tehsil => {
+                            const option = document.createElement('option');
+                            option.value = tehsil.toLowerCase();
+                            option.textContent = tehsil;
+                            tehsilSelect.appendChild(option);
+                        });
+                    }
+                    
+                    // Always add "Other" option
+                    const otherOption = document.createElement('option');
+                    otherOption.value = 'other';
+                    otherOption.textContent = 'Other (please specify)';
+                    tehsilSelect.appendChild(otherOption);
+                });
+            }
+            
+            // Enable village field when tehsil is selected
+            if (tehsilSelect && villageSelect) {
+                tehsilSelect.addEventListener('change', function() {
+                    // Enable village dropdown when tehsil is selected
+                    villageSelect.disabled = false;
+                    villageSelect.innerHTML = '<option value="" selected disabled>Select Village or Choose Manual Entry</option>';
+                    
+                    // Show other tehsil input if "Other" is selected
+                    if (this.value === 'other' && document.getElementById('otherTehsilContainer')) {
+                        document.getElementById('otherTehsilContainer').style.display = 'block';
+                    } else if (document.getElementById('otherTehsilContainer')) {
+                        document.getElementById('otherTehsilContainer').style.display = 'none';
+                    }
+                    
+                    // Add villages based on selected district and tehsil
+                    const district = districtSelect.value;
+                    const tehsil = this.value;
+                    
+                    if (district && tehsil && uttarakhandData[district] && uttarakhandData[district].villages[tehsil]) {
+                        uttarakhandData[district].villages[tehsil].forEach(village => {
+                            const option = document.createElement('option');
+                            option.value = village.toLowerCase();
+                            option.textContent = village;
+                            villageSelect.appendChild(option);
+                        });
+                    }
+                    
+                    // Add manual entry option
+                    const manualOption = document.createElement('option');
+                    manualOption.value = 'manual';
+                    manualOption.textContent = 'Enter village name manually';
+                    villageSelect.appendChild(manualOption);
+                });
+            }
+            
+            // Show manual village input when manual option is selected
             if (villageSelect) {
-              villageSelect.innerHTML = '<option value="" selected disabled>Select Village or Choose Manual Entry</option>';
-              villageSelect.disabled = true;
+                villageSelect.addEventListener('change', function() {
+                    if (this.value === 'manual' && document.getElementById('manualVillageContainer')) {
+                        document.getElementById('manualVillageContainer').style.display = 'block';
+                    } else if (document.getElementById('manualVillageContainer')) {
+                        document.getElementById('manualVillageContainer').style.display = 'none';
+                    }
+                });
             }
             
-            // Hide manual inputs
-            if (document.getElementById('manualVillageContainer')) {
-              document.getElementById('manualVillageContainer').style.display = 'none';
+            // Show other product input when "Other" is selected
+            const productOther = document.getElementById('productOther');
+            if (productOther) {
+                productOther.addEventListener('change', function() {
+                    if (this.checked && document.getElementById('otherProductContainer')) {
+                        document.getElementById('otherProductContainer').style.display = 'block';
+                    } else if (document.getElementById('otherProductContainer')) {
+                        document.getElementById('otherProductContainer').style.display = 'none';
+                    }
+                });
             }
-            if (document.getElementById('otherDistrictContainer')) {
-              document.getElementById('otherDistrictContainer').style.display = 'none';
-            }
-            if (document.getElementById('otherTehsilContainer')) {
-              document.getElementById('otherTehsilContainer').style.display = 'none';
+
+            // Form submission
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const fullName = document.getElementById('fullName').value;
+                    const phone = document.getElementById('phone').value;
+                    const district = document.getElementById('district').value;
+                    const tehsil = document.getElementById('tehsil').value;
+                    let village = document.getElementById('village').value;
+                    
+                    // Basic validation
+                    if (!district) {
+                        alert("Please select a district");
+                        return;
+                    }
+                    
+                    if (!tehsil) {
+                        alert("Please select a tehsil/block");
+                        return;
+                    }
+                    
+                    if (!village) {
+                        alert("Please select or enter a village");
+                        return;
+                    }
+                    
+                    // Handle manual village entry
+                    if (village === 'manual') {
+                        village = document.getElementById('manualVillage').value;
+                        if (!village) {
+                            alert("Please enter your village name");
+                            return;
+                        }
+                    }
+                    
+                    // Handle other district
+                    let finalDistrict = district;
+                    if (district === 'other') {
+                        finalDistrict = document.getElementById('otherDistrict').value;
+                        if (!finalDistrict) {
+                            alert("Please specify your district");
+                            return;
+                        }
+                    }
+                    
+                    // Handle other tehsil
+                    let finalTehsil = tehsil;
+                    if (tehsil === 'other') {
+                        finalTehsil = document.getElementById('otherTehsil').value;
+                        if (!finalTehsil) {
+                            alert("Please specify your tehsil/block");
+                            return;
+                        }
+                    }
+                    
+                    // Get selected products
+                    const products = [];
+                    if (document.getElementById('productPaneer') && document.getElementById('productPaneer').checked) products.push('Paneer');
+                    if (document.getElementById('productGhee') && document.getElementById('productGhee').checked) products.push('Ghee');
+                    if (document.getElementById('productHoney') && document.getElementById('productHoney').checked) products.push('Honey');
+                    if (document.getElementById('productMilk') && document.getElementById('productMilk').checked) products.push('Milk Products');
+                    if (document.getElementById('productSpices') && document.getElementById('productSpices').checked) products.push('Spices');
+                    if (document.getElementById('productPickles') && document.getElementById('productPickles').checked) products.push('Pickles');
+                    if (document.getElementById('productRajma') && document.getElementById('productRajma').checked) products.push('Rajma');
+                    
+                    if (document.getElementById('productOther') && document.getElementById('productOther').checked) {
+                        const otherProduct = document.getElementById('otherProduct').value;
+                        if (otherProduct) products.push(otherProduct);
+                    }
+                    
+                    if (products.length === 0) {
+                        alert("Please select at least one product you want to sell");
+                        return;
+                    }
+                    
+                    // Get video option
+                    const videoOption = document.querySelector('input[name="videoOption"]:checked');
+                    if (!videoOption) {
+                        alert("Please select an option for video sharing");
+                        return;
+                    }
+                    
+                    // Prepare data for submission (in a real application, this would be sent to a server)
+                    const sellerData = {
+                        fullName: fullName,
+                        phone: phone,
+                        email: document.getElementById('email').value,
+                        district: finalDistrict,
+                        tehsil: finalTehsil,
+                        village: village,
+                        pincode: document.getElementById('pincode').value,
+                        products: products,
+                        videoOption: videoOption.value,
+                        timestamp: new Date()
+                    };
+                    
+                    console.log("Form data:", sellerData);
+                    
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Reset dropdowns
+                    if (tehsilSelect) {
+                        tehsilSelect.innerHTML = '<option value="" selected disabled>First select District</option>';
+                        tehsilSelect.disabled = true;
+                    }
+                    
+                    if (villageSelect) {
+                        villageSelect.innerHTML = '<option value="" selected disabled>First select Tehsil</option>';
+                        villageSelect.disabled = true;
+                    }
+                    
+                    // Hide manual inputs
+                    if (document.getElementById('manualVillageContainer')) {
+                        document.getElementById('manualVillageContainer').style.display = 'none';
+                    }
+                    if (document.getElementById('otherDistrictContainer')) {
+                        document.getElementById('otherDistrictContainer').style.display = 'none';
+                    }
+                    if (document.getElementById('otherTehsilContainer')) {
+                        document.getElementById('otherTehsilContainer').style.display = 'none';
+                    }
+                    if (document.getElementById('otherProductContainer')) {
+                        document.getElementById('otherProductContainer').style.display = 'none';
+                    }
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             }
             
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({
-              behavior: 'smooth'
-            });
-          })
-          .catch((error) => {
-            console.error("Error adding document: ", error);
-            alert("There was an error with your registration. Please try again or contact us directly at +91 9876543210");
-          });
-      });
-    }
-  });
-</script>
+            // Contact form submission
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show success message
+                    alert('Thank you for your message! We will contact you soon.');
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
